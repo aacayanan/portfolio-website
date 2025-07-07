@@ -1,5 +1,8 @@
 import React from 'react';
 import profilePicture from '../assets/pfp.jpg';
+import githubIcon from '../assets/github.svg';
+import linkedinIcon from '../assets/linkedin.svg';
+import emailIcon from '../assets/email.svg';
 
 function PortfolioCard() {
     return (
@@ -26,6 +29,17 @@ function PortfolioCard() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac
                     bibendum.
                     In eu gravida nibh, non tristique elit. Praesent eleifend neque ac.
+                </div>
+                <div className='flex gap-4 p-2.5'>
+                    <a href="https://github.com/aacayanan" target="_blank">
+                        <img src={githubIcon} alt='github' height={24} width={24}/>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aaroncayanan/" target="_blank">
+                        <img src={linkedinIcon} alt='linkedin' height={24} width={24}/>
+                    </a>
+                    <a href="mailto:aaroncayanan02@gmail.com" target="_blank">
+                        <img src={emailIcon} alt='linkedin' height={24} width={24}/>
+                    </a>
                 </div>
             </div>
         </div>
