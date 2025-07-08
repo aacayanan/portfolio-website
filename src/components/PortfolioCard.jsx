@@ -3,8 +3,15 @@ import profilePicture from '../assets/pfp.jpg';
 import githubIcon from '../assets/github.svg';
 import linkedinIcon from '../assets/linkedin.svg';
 import emailIcon from '../assets/email.svg';
+import PropTypes from "prop-types";
 
-function PortfolioCard() {
+PortfolioCard.propTypes = {
+    jobHeader: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+};
+
+function PortfolioCard(props) {
     return (
         <div className='py-24 px-12 flex-col gap-2.5 w-[580px] bg-green-700'>
             <div className='p-2.5 bg-white'>
@@ -18,17 +25,15 @@ function PortfolioCard() {
                             I am a
                         </div>
                         <div className='text-red-600 text-base font-normal'>
-                            {"</full-stack developer>"}
+                            {`</${props.jobHeader}>`}
                         </div>
                     </div>
                     <div className='text-black text-sm font-light'>
-                        based in San Diego, CA
+                        based in {props.location}
                     </div>
                 </div>
                 <div className='text-black text-base font-normal p-2'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac
-                    bibendum.
-                    In eu gravida nibh, non tristique elit. Praesent eleifend neque ac.
+                    {props.description}
                 </div>
                 <div className='flex gap-4 p-2.5'>
                     <a href="https://github.com/aacayanan" target="_blank">
