@@ -1,4 +1,3 @@
-import React from 'react';
 import profilePicture from '../assets/pfp.jpg';
 import githubIcon from '../assets/github.svg';
 import linkedinIcon from '../assets/linkedin.svg';
