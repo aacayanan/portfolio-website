@@ -8,10 +8,10 @@ AboutCard.propTypes = {
 function AboutCard(props) {
     return (
         <div>
-            <div className=''>
+            <div className='text-black text-xl font-bold'>
                 About Me
             </div>
-            <div>
+            <div className='text-black font-normal'>
                 {props.content}
             </div>
         </div>
