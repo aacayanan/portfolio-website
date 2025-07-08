@@ -15,7 +15,7 @@ function App() {
                     location={data.portfolio.location}
                 />
             </div>
-            <div className='min-w-sm max-w-4xl'>
+            <div className='flex flex-col min-w-sm max-w-4xl gap-12'>
                 <AboutCard content={data.about.content}/>
                 <TechCard
                     languages={data.technologies.languages}

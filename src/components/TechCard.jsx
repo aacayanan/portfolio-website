@@ -7,7 +7,7 @@ TechCard.propTypes = {
 
 function TechCard(props) {
     return (
-        <div className='gap-2.5'>
+        <div className='flex flex-col gap-2.5'>
             <div className='text-black text-xl font-bold'>
                 Current Technologies
             </div>
