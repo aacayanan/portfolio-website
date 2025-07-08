@@ -6,20 +6,24 @@ import TechCard from "./components/TechCard.jsx";
 
 function App() {
 
-  return (
-    <div>
-      <PortfolioCard
-          jobHeader={data.portfolio["job-header"]}
-          description={data.portfolio.description}
-          location={data.portfolio.location}
-      />
-      <AboutCard content={data.about.content} />
-      <TechCard
-          languages={data.technologies.languages}
-          frameworks={data.technologies.frameworks}
-      />
-    </div>
-  )
+    return (
+        <div className='flex py-24 px-12'>
+            <div className='min-w-sm max-w-md'>
+                <PortfolioCard
+                    jobHeader={data.portfolio["job-header"]}
+                    description={data.portfolio.description}
+                    location={data.portfolio.location}
+                />
+            </div>
+            <div className='min-w-sm max-w-4xl'>
+                <AboutCard content={data.about.content}/>
+                <TechCard
+                    languages={data.technologies.languages}
+                    frameworks={data.technologies.frameworks}
+                />
+            </div>
+        </div>
+    )
 }
 
 export default App

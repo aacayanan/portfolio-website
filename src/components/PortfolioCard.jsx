@@ -12,7 +12,7 @@ PortfolioCard.propTypes = {
 
 function PortfolioCard(props) {
     return (
-        <div className='py-24 px-12 flex-col gap-2.5 w-[580px] bg-green-700'>
+        <div className='flex-col gap-2.5'>
             <div className='p-2.5 bg-white'>
                 <img src={profilePicture} alt="Profile" className='w-44 h-44 rounded-2xl p-2'/>
                 <div className='flex-col p-2'>
