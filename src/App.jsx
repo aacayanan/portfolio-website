@@ -3,6 +3,7 @@ import PortfolioCard from "./components/PortfolioCard.jsx";
 import AboutCard from "./components/AboutCard.jsx";
 import data from "./data.json";
 import TechCard from "./components/TechCard.jsx";
+import ExperienceCard from "./components/ExperienceCard.jsx";
 
 function App() {
 
@@ -16,10 +17,15 @@ function App() {
                 />
             </div>
             <div className='flex flex-col min-w-sm max-w-4xl gap-12'>
-                <AboutCard content={data.about.content}/>
+                <AboutCard
+                    content={data.about.content}
+                />
                 <TechCard
                     languages={data.technologies.languages}
                     frameworks={data.technologies.frameworks}
+                />
+                <ExperienceCard
+                    content={data.experience}
                 />
             </div>
         </div>
