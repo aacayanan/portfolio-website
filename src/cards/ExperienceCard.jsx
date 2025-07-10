@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import ExperienceContent from "../components/ExperienceContent.jsx";
 
@@ -8,15 +7,13 @@ ExperienceCard.propTypes = {
 
 function ExperienceCard(props) {
     return (
-        <div>
+        <div className='flex flex-col gap-2.5'>
             <div className='text-black text-xl font-bold'>
                 Experience
             </div>
-            <div>
-                {props.content.map((experience, index) => (
-                    <ExperienceContent content={experience} key={index}/>
-                ))}
-            </div>
+            {props.content.map((experience, index) => (
+                <ExperienceContent content={experience} key={index}/>
+            ))}
         </div>
     );
 }

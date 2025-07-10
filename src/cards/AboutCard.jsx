@@ -6,7 +6,7 @@ AboutCard.propTypes = {
 
 function AboutCard(props) {
     return (
-        <div>
+        <div className='flex flex-col gap-2.5'>
             <div className='text-black text-xl font-bold'>
                 About Me
             </div>
