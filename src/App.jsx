@@ -1,9 +1,9 @@
 import './App.css'
-import PortfolioCard from "./components/PortfolioCard.jsx";
-import AboutCard from "./components/AboutCard.jsx";
+import PortfolioCard from "./cards/PortfolioCard.jsx";
+import AboutCard from "./cards/AboutCard.jsx";
 import data from "./data.json";
-import TechCard from "./components/TechCard.jsx";
-import ExperienceCard from "./components/ExperienceCard.jsx";
+import TechCard from "./cards/TechCard.jsx";
+import ExperienceCard from "./cards/ExperienceCard.jsx";
 
 function App() {
 
@@ -24,9 +24,8 @@ function App() {
                     languages={data.technologies.languages}
                     frameworks={data.technologies.frameworks}
                 />
-                <ExperienceCard
-                    content={data.experience}
-                />
+                {/* Experience Section */}
+                <ExperienceCard content={data.experience} />
             </div>
         </div>
     )

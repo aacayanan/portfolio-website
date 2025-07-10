@@ -9,16 +9,30 @@
   },
   "technologies": {
     "languages": [
-        "JavaScript",
-        "TypeScript",
-        "Python",
-        "Java"
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Java"
     ],
     "frameworks": [
-        "React",
-        "Node.js",
-        "Express",
-        "Flask"
+      "React",
+      "Node.js",
+      "Express",
+      "Flask"
     ]
-  }
+  },
+  "experience": [
+    {
+      "company": "Company A",
+      "position": "Position A",
+      "duration": "Month, Year - Month, Year",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit."
+    },
+    {
+      "company": "Company B",
+      "position": "Position B",
+      "duration": "Month, Year - Month, Year",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit."
+    }
+  ]
 }
