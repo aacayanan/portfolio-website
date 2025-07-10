@@ -17,13 +17,13 @@ function PortfolioCard(props) {
                 <img src={profilePicture} alt="Profile" className='w-44 h-44 rounded-2xl p-2'/>
                 <div className='flex-col p-2'>
                     <div className='text-black text-2xl font-bold'>
-                        Howdy, I'm Aaron 👋
+                        Howdy, I&#39;m Aaron 👋
                     </div>
                     <div className='flex'>
                         <div className='text-black text-base font-normal'>
                             I am a
                         </div>
-                        <div className='text-red-600 text-base font-normal'>
+                        <div className='text-danger text-base font-normal'>
                             {`</${props.jobHeader}>`}
                         </div>
                     </div>

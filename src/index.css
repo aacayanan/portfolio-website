@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+    /*COLOR TONE*/
+    --color-primary: rgba(240, 219, 79, 0.5);
+    --color-primary-accent: rgba(113, 103, 34, 1);
+    --color-secondary: rgba(100, 149, 237, 0.5);
+    --color-secondary-accent: rgba(63, 98, 161, 1);
+    --color-danger: #DE1212;
+}

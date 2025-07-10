@@ -7,7 +7,7 @@ ExperienceContent.propTypes = {
 function ExperienceContent(props) {
     return (
         <div className='flex gap-2.5 py-2.5'>
-            <div className="bg-slate-500 text-slate-500">.</div>
+            <div className="bg-secondary-accent text-primary">.</div>
             <div className='flex flex-col py-2.5'>
                 <div className='flex justify-between text-black font-normal'>
                     <div className='text-lg font-semibold'>

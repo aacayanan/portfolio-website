@@ -18,7 +18,7 @@ function TechCard(props) {
                 <ul className='flex justify-start items-center gap-3.5'>
                     {props.languages.map((language, index) => (
                         <li key={index}
-                            className='justify-center text-yellow-800 text-sm font-normal px-1 py-0.5 bg-amber-300/50 rounded-lg inline-flex items-center'>
+                            className='justify-center text-primary-accent text-sm font-normal px-1 py-0.5 bg-primary rounded-lg inline-flex items-center'>
                             {language}
                         </li>
                     ))}
@@ -30,7 +30,7 @@ function TechCard(props) {
                 </div>
                 <ul className='flex justify-start items-center gap-3.5'>
                     {props.frameworks.map((framework, index) => (
-                        <li key={index} className='justify-center text-slate-500 text-sm font-normal px-1 py-0.5 bg-blue-400/50 rounded-lg inline-flex items-center'>
+                        <li key={index} className='justify-center text-secondary-accent text-sm font-normal px-1 py-0.5 bg-secondary rounded-lg inline-flex items-center'>
                             {framework}
                         </li>
                     ))}
