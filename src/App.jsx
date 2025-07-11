@@ -8,7 +8,7 @@ import ExperienceCard from "./cards/ExperienceCard.jsx";
 function App() {
 
     return (
-        <div className='flex py-24 px-12'>
+        <div className='flex py-24 px-12 justify-center'>
             <div className='min-w-sm max-w-md'>
                 <PortfolioCard
                     jobHeader={data.portfolio["job-header"]}
