@@ -4,6 +4,7 @@ import AboutCard from "./cards/AboutCard.jsx";
 import data from "./data.json";
 import TechCard from "./cards/TechCard.jsx";
 import ExperienceCard from "./cards/ExperienceCard.jsx";
+import ContactCard from "./cards/ContactCard.jsx";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 />
                 {/* Experience Section */}
                 <ExperienceCard content={data.experience} />
+                <ContactCard />
             </div>
         </div>
     )
