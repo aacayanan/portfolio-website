@@ -1,4 +1,11 @@
 function ContactCard() {
+
+    const handleButtonClick = () => {
+        const userEmail = document.querySelector('input[type="email"]').value;
+        const userMessage = document.querySelector('textarea').value;
+        // TODO: Implement email sending logic here
+    }
+
     return (
         <div className='flex flex-col gap-2.5'>
             <div className='text-black text-xl font-bold'>
@@ -19,7 +26,10 @@ function ContactCard() {
                         className="p-2 border border-gray-400 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                         rows="4"
                     ></textarea>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300">
+                    <button
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300"
+                        onClick={handleButtonClick}
+                    >
                         Send
                     </button>
                 </div>
