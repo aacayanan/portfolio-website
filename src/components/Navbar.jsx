@@ -5,22 +5,32 @@ import { useLocation } from "react-router-dom";
 function Navbar() {
     const location = useLocation();
     const isActive = location.pathname;
-  return (
-    <div className='flex justify-center items-center gap-5 h-12 shadow-md'>
-        <Link to={"/"} className={`${isActive === "/" ? "text-blue-500" : "text-gray-700"}`}>
-            Home
-        </Link>
-        <Link to={"/experience"} className={`${isActive === "/experience" ? "text-blue-500" : "text-gray-700"}`}>
-            Experience
-        </Link>
-        <Link to={"/skills"} className={`${isActive === "/skills" ? "text-blue-500" : "text-gray-700"}`}>
-            Skills
-        </Link>
-        <Link to={"/projects"} className={`${isActive === "/projects" ? "text-blue-500" : "text-gray-700"}`}>
-            Projects
-        </Link>
-    </div>
-  );
+
+    const navLinks = [
+        {name: "Home", path: "/"},
+        {name: "Experience", path: "/experience"},
+        {name: "Skills", path: "/skills"},
+        {name: "Projects", path: "/projects"},
+    ];
+
+    return (
+        <div className="flex justify-center items-center gap-5 h-12">
+            {navLinks.map((link) => (
+                <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`${
+                        isActive === link.path
+                            ? "text-blue-500 underline underline-offset-4"
+                            : "text-gray-700 hover:text-black"
+                    }`}
+                >
+                    {link.name}
+                </Link>
+            ))}
+        </div>
+    );
+
 }
 
 export default Navbar;
