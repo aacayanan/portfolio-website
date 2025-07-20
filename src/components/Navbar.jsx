@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 function Navbar() {
+    const navigate = useNavigate();
     const location = useLocation();
     const isActive = location.pathname;
 
@@ -14,8 +15,11 @@ function Navbar() {
     ];
 
     return (
-        <div className="flex justify-around items-center h-18 text-lg">
-            <div>
+        <div className="flex justify-around items-center h-18 text-lg select-none">
+            <div
+                onClick={() => navigate("/")}
+                className='cursor-pointer'
+            >
                 Aaron Cayanan
             </div>
             <div className='flex gap-5'>
