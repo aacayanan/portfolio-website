@@ -1,40 +1,28 @@
 {
   "portfolio": {
-    "job-header": "full-stack developer",
-    "location": "San Diego, CA",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit. Praesent eleifend neque ac.\n"
+    "job-header": "Software Engineer",
+    "description": "I am a software engineer with a passion for building beautiful and functional web applications.",
+    "location": "San Francisco, CA"
   },
   "about": {
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin fringilla malesuada. Donec sit amet euismod urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin auctor tortor in nunc congue, commodo commodo felis suscipit. Morbi imperdiet lectus quam, eu volutpat mauris porttitor tempus. Sed turpis purus, hendrerit varius finibus ac, luctus a ante. Ut dignissim magna nec accumsan mollis. Vivamus ac arcu turpis. Nunc mi urna, elementum sed lacus eu, vehicula tincidunt ante. Donec leo massa, convallis id magna nec, tincidunt ullamcorper enim."
+    "content": "I am a software engineer with a passion for building beautiful and functional web applications. I have experience with a variety of technologies, including React, Node.js, and Python. I am always looking for new challenges and opportunities to learn and grow."
   },
   "technologies": {
-    "languages": [
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "Java"
-    ],
-    "frameworks": [
-      "React",
-      "Node.js",
-      "Express",
-      "Flask"
-    ]
+    "languages": ["JavaScript", "Python", "HTML", "CSS"],
+    "frameworks": ["React", "Node.js", "Express", "Flask"]
   },
   "experience": [
     {
-      "company": "Company A",
-      "position": "Position A",
-      "duration": "Month, Year - Month, Year",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit.",
-      "logo": ""
+      "title": "Software Engineer",
+      "company": "Google",
+      "date": "2022-Present",
+      "description": "I am currently working as a software engineer at Google, where I am responsible for developing and maintaining web applications."
     },
     {
-      "company": "Company B",
-      "position": "Position B",
-      "duration": "Month, Year - Month, Year",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit.",
-      "logo": ""
+      "title": "Software Engineer Intern",
+      "company": "Facebook",
+      "date": "2021-2022",
+      "description": "I worked as a software engineer intern at Facebook, where I gained experience with a variety of technologies, including React, Node.js, and Python."
     }
   ]
 }
