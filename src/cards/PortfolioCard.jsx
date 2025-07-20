@@ -12,10 +12,10 @@ PortfolioCard.propTypes = {
 
 function PortfolioCard(props) {
     return (
-        <div className='flex-col gap-2.5'>
-            <div className='p-2.5 bg-white'>
+        <div className='flex flex-col gap-2.5 justify-center items-center'>
+            <div className='flex flex-col justify-center items-center p-2.5'>
                 <img src={profilePicture} alt="Profile" className='w-44 h-44 rounded-2xl p-2'/>
-                <div className='flex-col p-2'>
+                <div className='flex flex-col p-2 items-center'>
                     <div className='text-black text-2xl font-bold'>
                         Howdy, I&#39;m Aaron 👋
                     </div>
