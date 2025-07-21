@@ -9,10 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Here is the deployment action
-      - name: Upload from public_html via FTP
+      - name: FTP Deploy
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: "./public_html"
+          local_dir: ./build
+          remote_dir: /public_html
+          delete: false
