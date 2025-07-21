@@ -2,39 +2,53 @@
   "portfolio": {
     "job-header": "full-stack developer",
     "location": "San Diego, CA",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit. Praesent eleifend neque ac.\n"
+    "description": "A full-stack developer and computer science student with experience building end-to-end web and mobile applications. Creating software with focus on usability, performance, and scalability that is easy to maintain."
   },
   "about": {
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin fringilla malesuada. Donec sit amet euismod urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin auctor tortor in nunc congue, commodo commodo felis suscipit. Morbi imperdiet lectus quam, eu volutpat mauris porttitor tempus. Sed turpis purus, hendrerit varius finibus ac, luctus a ante. Ut dignissim magna nec accumsan mollis. Vivamus ac arcu turpis. Nunc mi urna, elementum sed lacus eu, vehicula tincidunt ante. Donec leo massa, convallis id magna nec, tincidunt ullamcorper enim."
   },
   "technologies": {
-    "languages": [
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "Java"
-    ],
+    "languages": {
+      "language": [
+      "JavaScript"
+      ],
+      "file": [
+        "languages/js.png"
+      ]
+    },
     "frameworks": [
       "React",
+      "React Native",
+      "Next.js",
       "Node.js",
       "Express",
-      "Flask"
+      "Flask",
+      "Tailwind CSS",
+      "Expo",
+      "Vite"
     ]
   },
   "experience": [
     {
-      "company": "Company A",
-      "position": "Position A",
-      "duration": "Month, Year - Month, Year",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit.",
-      "logo": ""
+      "company": "LiaiZen",
+      "position": "Software Engineer Intern",
+      "duration": "Jun 2025 - Present",
+      "description": "I work across both the technical and design sides of product development, contributing to mobile deployment integration, frontend development and design, and AI agent creation. I’ve refined intelligent agent behavior through prompt engineering and prototyping in collaboration with the AI team. On the design side, I translate ideas into structured Figma mockups and participate in cross-functional meetings to align design with implementation. My role bridges development, AI functionality, and UX design to ensure smooth deployment and a cohesive user experience.",
+      "logo": "https://liaizen.com/wp-content/uploads/2024/09/decoration.png"
     },
     {
-      "company": "Company B",
-      "position": "Position B",
-      "duration": "Month, Year - Month, Year",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum sodales turpis ac bibendum. In eu gravida nibh, non tristique elit.",
-      "logo": ""
+      "company": "Scale AI",
+      "position": "AI Code Trainer",
+      "duration": "Feb 2024 - Dec 2024",
+      "description": "I specialized in translating complex prompts into effective, secure, and well-structured code across languages such as Python, Java, C/C++, C#, and JavaScript. I focus on training and fine-tuning large language models (LLMs) with an emphasis on clarity, correctness, and robustness of their outputs. My work involves writing thorough test cases to validate performance and ensure the reliability of model-driven solutions.",
+      "logo": "https://cdn-1.webcatalog.io/catalog/scale-ai/scale-ai-social-preview.png?v=1714775738638"
+    },
+    {
+      "company": "Crazy Science: Robotics",
+      "position": "After School Robotics Instructor",
+      "duration": "Feb 2025 - Present",
+      "description": "I teach block-based programming and robotics to elementary students using platforms like VEX Go and Cubelets. I lead after-school classes of up to 20 students, designing hands-on coding challenges that introduce core programming concepts like logic, debugging, and structured thinking in a fun and engaging way.",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFaItandLUPTRfmOSnT587tQu8FskhNA5AqA&s"
     }
   ]
 }
