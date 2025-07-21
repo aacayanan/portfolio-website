@@ -1,36 +1,22 @@
-import './App.css'
-import PortfolioCard from "./cards/PortfolioCard.jsx";
-import AboutCard from "./cards/AboutCard.jsx";
-import data from "./data.json";
-import TechCard from "./cards/TechCard.jsx";
-import ExperienceCard from "./cards/ExperienceCard.jsx";
-import ContactCard from "./cards/ContactCard.jsx";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Experience from './pages/Experience';
+import Skills from './pages/Skills';
+import Projects from './pages/Projects.jsx';
 
 function App() {
-
-    return (
-        <div className='flex py-24 px-12 justify-center'>
-            <div className='min-w-sm max-w-md'>
-                <PortfolioCard
-                    jobHeader={data.portfolio["job-header"]}
-                    description={data.portfolio.description}
-                    location={data.portfolio.location}
-                />
-            </div>
-            <div className='flex flex-col min-w-sm max-w-4xl gap-12'>
-                <AboutCard
-                    content={data.about.content}
-                />
-                <TechCard
-                    languages={data.technologies.languages}
-                    frameworks={data.technologies.frameworks}
-                />
-                {/* Experience Section */}
-                <ExperienceCard content={data.experience} />
-                <ContactCard />
-            </div>
-        </div>
-    )
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
