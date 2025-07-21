@@ -1,23 +1,34 @@
-name: CI -> Deploy to My website
+name: Deploy via FTP
+
 on:
   push:
-    branches: 
+    branches:
       - master
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       - name: Install dependencies
         run: npm ci
-      - name: Build the project
+
+      - name: Build with Vite
         run: npm run build
-      - name: FTP Deploy
+
+      - name: Deploy via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: ./build
+          local_dir: ./dist
           remote_dir: /public_html
-          delete: false
