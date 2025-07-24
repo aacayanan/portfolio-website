@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ExperienceCard from "../cards/ExperienceCard.jsx";
 import data from "../data.json";
-import ContactCard from "../cards/ContactCard.jsx";
+import EducationCard from "../cards/EducationCard.jsx";
 
 function Experience() {
     const [activeTab, setActiveTab] = useState(true);
@@ -27,7 +27,7 @@ function Experience() {
             {activeTab ? (
                 <ExperienceCard content={data.experience} />
             ): (
-                <ContactCard />
+                <EducationCard content={data.education} />
             )}
         </div>
     );
