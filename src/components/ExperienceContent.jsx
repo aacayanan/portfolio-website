@@ -6,17 +6,16 @@ ExperienceContent.propTypes = {
 };
 
 function ExperienceContent(props) {
-    if (!props.content.logo || props.content.logo === '') {
-        props.content.logo = placeholderImg
-    }
+    const logoUrl = new URL(props.content.logo, import.meta.url).href;
+
 
     return (
         <div className='flex gap-3'>
-            <div className='flex flex-col items-center h-full'>
+            <div className='flex flex-col items-center'>
                 <div className="bg-secondary-accent h-full w-0.5"></div>
                 <div className='w-16 h-16 shrink-0'>
                     <img
-                        src={props.content.logo}
+                        src={logoUrl || placeholderImg}
                         className="w-full h-full object-cover border-2 border-secondary-accent rounded-full"
                         alt="company-logo"
                     />

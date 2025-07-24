@@ -34,7 +34,7 @@
       "position": "Software Engineer Intern",
       "duration": "Jun 2025 - Present",
       "description": "I work across both the technical and design sides of product development, contributing to mobile deployment integration, frontend development and design, and AI agent creation. I’ve refined intelligent agent behavior through prompt engineering and prototyping in collaboration with the AI team. On the design side, I translate ideas into structured Figma mockups and participate in cross-functional meetings to align design with implementation. My role bridges development, AI functionality, and UX design to ensure smooth deployment and a cohesive user experience.",
-      "logo": "https://liaizen.com/wp-content/uploads/2024/09/decoration.png"
+      "logo": "../assets/liaizen.svg"
     },
     {
       "company": "Scale AI",
