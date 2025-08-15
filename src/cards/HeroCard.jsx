@@ -18,7 +18,7 @@ function HeroCard(props) {
     ]
 
     return (
-        <div className='flex gap-16 justify-center font-mono'>
+        <div className='flex gap-16 justify-center'>
             <div className='flex flex-col gap-8 justify-center'>
                 {/* Headline */}
                 <div className='flex flex-col gap-1'>
