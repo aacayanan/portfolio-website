@@ -18,13 +18,13 @@ function HeroCard(props) {
     ]
 
     return (
-        <div className='flex gap-16 justify-center'>
+        <div className='flex flex-col-reverse gap-16 justify-center items-center lg:flex-row'>
             <div className='flex flex-col gap-8 justify-center'>
                 {/* Headline */}
-                <div className='flex flex-col gap-1'>
-                    <div className='text-6xl font-semibold'>Aaron Justin Cayanan</div>
-                    <div className='text-5xl font-normal text-danger'>{`</${jobHeader}>`}</div>
-                    <div className='text-2xl font-normal text-gray-600'>based in {location}</div>
+                <div className='flex flex-col gap-1 text-center lg:text-left'>
+                    <div className='text-3xl font-semibold xl:text-6xl lg:text-5xl md:text-4xl'>Aaron Justin Cayanan</div>
+                    <div className='text-xl font-normal text-danger xl:text-5xl lg:text-4xl md:text-3xl'>{`</${jobHeader}>`}</div>
+                    <div className='text-md font-normal text-gray-600 xl:text-2xl lg:text-xl md:text-lg'>based in {location}</div>
                 </div>
                 {/*  Benefits  */}
                 {/*<div className='flex flex-wrap gap-8 text-lg font-medium text-gray-600'>*/}
@@ -40,7 +40,7 @@ function HeroCard(props) {
                     {description}
                 </div>
             </div>
-            <img src={profilePicture} alt="Profile" className='w-xl h-xl rounded-2xl p-2 object-contain'/>
+            <img src={profilePicture} alt="Profile" className='w-56 h-xl xl:w-lg lg:w-md rounded-2xl p-2 object-contain'/>
         </div>
     );
 }
