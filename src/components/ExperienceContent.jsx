@@ -10,7 +10,7 @@ function ExperienceContent(props) {
 
 
     return (
-        <div className='flex gap-3'>
+        <div className='flex gap-4'>
             <div className='flex flex-col items-center'>
                 <div className="bg-secondary-accent h-full w-0.5"></div>
                 <div className='w-16 h-16 shrink-0'>
@@ -22,18 +22,25 @@ function ExperienceContent(props) {
                 </div>
                 <div className="bg-secondary-accent h-full w-0.5"></div>
             </div>
-            <div className='flex flex-col py-2.5'>
-                <div className='flex justify-between text-black font-normal'>
-                    <div className='text-lg font-semibold'>
-                        {props.content.company}
+            <div className='flex flex-col py-8 gap-4'>
+                {/* Header */}
+                <div className='flex flex-col justify-between text-black font-normal'>
+                    <div className='flex gap-2 text-lg font-semibold'>
+                        <div className=''>
+                            {props.content.position}
+                        </div>
+                        <div className='flex gap-2 text-blue-500'>
+                            <span>@</span>
+                            <div>
+                                {props.content.company}
+                            </div>
+                        </div>
                     </div>
                     <div className='text-s font-light'>
                         {props.content.duration}
                     </div>
                 </div>
-                <div className='text-s font-light'>
-                    {props.content.position}
-                </div>
+                {/* Description */}
                 <div>
                     {props.content.description}
                 </div>
