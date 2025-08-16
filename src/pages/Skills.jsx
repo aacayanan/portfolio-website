@@ -4,7 +4,7 @@ import TechCard from "../cards/TechCard.jsx";
 
 function Skills() {
     return (
-        <div className='flex py-24 px-12 justify-center'>
+        <div className='flex justify-center py-10 mx-auto max-w-4xl'>
             <TechCard
                 languages={data.technologies.languages}
                 frameworks={data.technologies.frameworks}

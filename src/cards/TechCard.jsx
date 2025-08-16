@@ -8,36 +8,75 @@ TechCard.propTypes = {
 
 function TechCard(props) {
     return (
-        <div className='flex flex-col gap-2.5'>
-            <div className='text-black text-xl font-bold'>
-                Current Technologies
-            </div>
-            <TechComponent title={props.languages.language} logo={props.languages.file}/>
-            <div>
-                <div className="text-black text-base font-semibold">
-                    Languages
+        <div className='flex flex-col gap-20 w-full'>
+            {/* Frontend */}
+            <div className='flex'>
+                <div className='text-black text-xl font-bold w-56'>Frontend</div>
+                <div className='grid grid-cols-4 gap-8 w-full'>
+                    <div>JavaScript</div>
+                    <div>TypeScript</div>
+                    <div>React</div>
+                    <div>JavaScript</div>
+                    <div>TypeScript</div>
+                    <div>React</div>
+                    <div>JavaScript</div>
+                    <div>TypeScript</div>
+                    <div>React</div>
+                    <div>JavaScript</div>
+                    <div>TypeScript</div>
+                    <div>React</div>
                 </div>
-                <ul className='flex justify-start items-center gap-3.5'>
-                    {props.languages.language.map((language, index) => (
-                        <li key={index}
-                            className='justify-center text-primary-accent text-sm font-normal px-1 py-0.5 bg-primary rounded-lg inline-flex items-center'>
-                            {language}
-                        </li>
-                    ))}
-                </ul>
             </div>
-            <div>
-                <div className="text-black text-base font-semibold">
-                    Frameworks
+            {/* Backend */}
+            <div className='flex'>
+                <div className='text-black text-xl font-bold w-56'>Backend</div>
+                <div className='grid grid-cols-4 gap-8 w-full'>
+                    <div>Node.js</div>
+                    <div>Next.js</div>
+                    <div>Flask</div>
+                    <div>Node.js</div>
+                    <div>Next.js</div>
+                    <div>Flask</div>
+                    <div>Node.js</div>
+                    <div>Next.js</div>
+                    <div>Flask</div>
+                    <div>Node.js</div>
+                    <div>Next.js</div>
+                    <div>Flask</div>
+
                 </div>
-                <ul className='flex justify-start items-center gap-3.5'>
-                    {props.frameworks.map((framework, index) => (
-                        <li key={index}
-                            className='justify-center text-secondary-accent text-sm font-normal px-1 py-0.5 bg-secondary rounded-lg inline-flex items-center'>
-                            {framework}
-                        </li>
-                    ))}
-                </ul>
+            </div>
+            {/* Database */}
+            <div className='flex'>
+                <div className='text-black text-xl font-bold w-56'>Database</div>
+                <div className='grid grid-cols-4 gap-8 w-full'>
+                    <div>Supabase</div>
+                    <div>Postgres</div>
+                    <div>Supabase</div>
+                    <div>Postgres</div>
+                    <div>Supabase</div>
+                    <div>Postgres</div>
+
+                </div>
+            </div>
+            {/* Tools */}
+            <div className='flex'>
+                <div className='text-black text-xl font-bold w-56'>Tools</div>
+                <div className='grid grid-cols-4 gap-8 w-full'>
+                    <div>Git</div>
+                    <div>Docker</div>
+                    <div>GitHub</div>
+                    <div>Git</div>
+                    <div>Docker</div>
+                    <div>GitHub</div>
+                    <div>Git</div>
+                    <div>Docker</div>
+                    <div>GitHub</div>
+                    <div>Git</div>
+                    <div>Docker</div>
+                    <div>GitHub</div>
+
+                </div>
             </div>
         </div>
     );
