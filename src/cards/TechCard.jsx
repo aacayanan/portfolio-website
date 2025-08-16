@@ -14,12 +14,13 @@ function TechCard(props) {
                 <div className='text-black text-xl font-bold w-56'>Frontend</div>
                 <div className='grid grid-cols-4 gap-8 w-full'>
                     {props.frontend.map((tech, index) => (
-                        <div key={index}>
+                        <div key={index} className='flex gap-2 items-center'>
                             <img
                                 src={tech.icon}
                                 alt={tech.language}
+                                className='h-6 w-6'
                             />
-                            <span>{tech.language}</span>
+                            <span className='text-lg'>{tech.language}</span>
                         </div>
                     ))}
                 </div>
