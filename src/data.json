@@ -18,16 +18,13 @@
       {"language": "HTML", "icon": "/frontend/html.png"},
       {"language": "CSS", "icon": "/frontend/css.png"}
     ],
-    "frameworks": [
-      "React",
-      "React Native",
-      "Next.js",
-      "Node.js",
-      "Express",
-      "Flask",
-      "Tailwind CSS",
-      "Expo",
-      "Vite"
+    "backend": [
+      {"language": "Python", "icon": "/backend/python.png"},
+      {"language": "Flask", "icon": "/backend/flask.webp"},
+      {"language": "FastAPI", "icon": "/backend/fastapi.svg"},
+      {"language": "Node.js", "icon": "/backend/nodejs.svg"},
+      {"language": "Java", "icon": "/backend/java.webp"},
+      {"language": "C/C++", "icon": "/backend/cpp.png"}
     ]
   },
   "experience": [
