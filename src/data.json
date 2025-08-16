@@ -25,6 +25,17 @@
       {"language": "Node.js", "icon": "/backend/nodejs.svg"},
       {"language": "Java", "icon": "/backend/java.webp"},
       {"language": "C/C++", "icon": "/backend/cpp.png"}
+    ],
+    "database": [
+      {"language": "PostgreSQL", "icon": "/database/postgres.png"},
+      {"language": "SQLite", "icon": "/database/sqlite.svg"}
+    ],
+    "tools": [
+      {"language": "Git/GitHub", "icon": "/tools/git.png"},
+      {"language": "Supabase", "icon": "/tools/supabase.png"},
+      {"language": "Docker", "icon": "/tools/docker.svg"},
+      {"language": "GitHub Actions", "icon": "/tools/github.png"},
+      {"language": "Jest", "icon": "/tools/jest.png"}
     ]
   },
   "experience": [

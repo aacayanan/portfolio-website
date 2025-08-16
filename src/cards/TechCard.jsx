@@ -21,7 +21,7 @@ function TechCard(props) {
                                 alt={tech.language}
                                 className='h-6 w-6'
                             />
-                            <span className='text-lg'>{tech.language}</span>
+                            <span className='text-lg text-nowrap'>{tech.language}</span>
                         </div>
                     ))}
                 </div>
@@ -37,7 +37,7 @@ function TechCard(props) {
                                 alt={tech.language}
                                 className='h-6 w-6'
                             />
-                            <span className='text-lg'>{tech.language}</span>
+                            <span className='text-lg text-nowrap'>{tech.language}</span>
                         </div>
                     ))}
                 </div>
@@ -53,7 +53,7 @@ function TechCard(props) {
                                 alt={tech.language}
                                 className='h-6 w-6'
                             />
-                            <span className='text-lg'>{tech.language}</span>
+                            <span className='text-lg text-nowrap'>{tech.language}</span>
                         </div>
                     ))}
                 </div>
@@ -69,7 +69,7 @@ function TechCard(props) {
                                 alt={tech.language}
                                 className='h-6 w-6'
                             />
-                            <span className='text-lg'>{tech.language}</span>
+                            <span className='text-lg text-nowrap'>{tech.language}</span>
                         </div>
                     ))}
                 </div>
