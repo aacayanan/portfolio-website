@@ -9,10 +9,14 @@
   },
   "technologies": {
     "frontend": [
-      {
-        "language": "JavaScript",
-        "icon": "/languages/js.png"
-      }
+      {"language": "TypeScript", "icon": "/frontend/ts.svg"},
+      {"language": "JavaScript", "icon": "/frontend/js.png"},
+      {"language": "React", "icon": "/frontend/react.webp"},
+      {"language": "Tailwind", "icon": "/frontend/tailwind.svg"},
+      {"language": "Next.js", "icon": "/frontend/nextjs.svg"},
+      {"language": "Figma", "icon": "/frontend/figma.webp"},
+      {"language": "HTML", "icon": "/frontend/html.png"},
+      {"language": "CSS", "icon": "/frontend/css.png"}
     ],
     "frameworks": [
       "React",
