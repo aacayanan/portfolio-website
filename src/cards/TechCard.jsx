@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import TechComponent from "../components/TechComponent.jsx";
 
 TechCard.propTypes = {
     frontend: PropTypes.arrayOf(PropTypes.string).isRequired,
-    frameworks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    backend: PropTypes.arrayOf(PropTypes.string).isRequired,
+    database: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 function TechCard(props) {
@@ -29,51 +30,48 @@ function TechCard(props) {
             <div className='flex'>
                 <div className='text-black text-xl font-bold w-56'>Backend</div>
                 <div className='grid grid-cols-4 gap-8 w-full'>
-                    <div>Node.js</div>
-                    <div>Next.js</div>
-                    <div>Flask</div>
-                    <div>Node.js</div>
-                    <div>Next.js</div>
-                    <div>Flask</div>
-                    <div>Node.js</div>
-                    <div>Next.js</div>
-                    <div>Flask</div>
-                    <div>Node.js</div>
-                    <div>Next.js</div>
-                    <div>Flask</div>
-
+                    {props.backend.map((tech, index) => (
+                        <div key={index} className='flex gap-2 items-center'>
+                            <img
+                                src={tech.icon}
+                                alt={tech.language}
+                                className='h-6 w-6'
+                            />
+                            <span className='text-lg'>{tech.language}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
             {/* Database */}
             <div className='flex'>
                 <div className='text-black text-xl font-bold w-56'>Database</div>
                 <div className='grid grid-cols-4 gap-8 w-full'>
-                    <div>Supabase</div>
-                    <div>Postgres</div>
-                    <div>Supabase</div>
-                    <div>Postgres</div>
-                    <div>Supabase</div>
-                    <div>Postgres</div>
-
+                    {props.database.map((tech, index) => (
+                        <div key={index} className='flex gap-2 items-center'>
+                            <img
+                                src={tech.icon}
+                                alt={tech.language}
+                                className='h-6 w-6'
+                            />
+                            <span className='text-lg'>{tech.language}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
             {/* Tools */}
             <div className='flex'>
                 <div className='text-black text-xl font-bold w-56'>Tools</div>
                 <div className='grid grid-cols-4 gap-8 w-full'>
-                    <div>Git</div>
-                    <div>Docker</div>
-                    <div>GitHub</div>
-                    <div>Git</div>
-                    <div>Docker</div>
-                    <div>GitHub</div>
-                    <div>Git</div>
-                    <div>Docker</div>
-                    <div>GitHub</div>
-                    <div>Git</div>
-                    <div>Docker</div>
-                    <div>GitHub</div>
-
+                    {props.tools.map((tech, index) => (
+                        <div key={index} className='flex gap-2 items-center'>
+                            <img
+                                src={tech.icon}
+                                alt={tech.language}
+                                className='h-6 w-6'
+                            />
+                            <span className='text-lg'>{tech.language}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
