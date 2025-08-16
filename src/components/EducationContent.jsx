@@ -22,7 +22,7 @@ function ExperienceContent(props) {
                 </div>
                 <div className="bg-secondary-accent h-full w-0.5"></div>
             </div>
-            <div className='flex flex-col py-4 w-full'>
+            <div className='flex flex-col py-8 w-full'>
                 <div className='flex justify-between text-black font-normal'>
                     <div className='text-lg font-semibold'>
                         {props.content.institution}
