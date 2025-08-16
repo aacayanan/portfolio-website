@@ -20,11 +20,11 @@ function Navbar() {
             <div className="flex justify-around items-center h-18 text-lg select-none">
                 <div
                     onClick={() => navigate("/")}
-                    className='cursor-pointer'
+                    className='cursor-pointer text-nowrap'
                 >
                     Aaron Cayanan
                 </div>
-                <div className='flex gap-5'>
+                <div className='flex gap-5 hidden md:flex'>
                     {navLinks.map((link) => (
                         <Link
                             key={link.path}
@@ -41,13 +41,13 @@ function Navbar() {
                 </div>
                 <button
                     onClick={() => window.open("https://aaroncayanan.com/resume", "_blank")}
-                    className='border-2 border-gray-700 rounded-md px-4 py-2 hover:bg-gray-700 hover:text-white transition-colors duration-300'
+                    className='border-2 border-gray-700 text-lg rounded-md px-2 py-1 hover:bg-gray-700 hover:text-white transition-colors duration-300'
                 >
                     Resume
                 </button>
             </div>
             {showAlert && (
-                <div className='flex justify-between bg-gray-700 text-white p-2 text-md select-none'>
+                <div className='flex justify-between bg-gray-700 text-white p-2 select-none text-xs md:text-sm lg:text-md items-center'>
                     <div className='text-gray-700'>x</div>
                     🚧 This website is still under development! 🚧
                     <button className='cursor-pointer' onClick={() => setShowAlert(false)}>X</button>
