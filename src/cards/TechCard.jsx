@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import TechComponent from "../components/TechComponent.jsx";
 
 TechCard.propTypes = {
-    languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+    frontend: PropTypes.arrayOf(PropTypes.string).isRequired,
     frameworks: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
@@ -13,18 +13,15 @@ function TechCard(props) {
             <div className='flex'>
                 <div className='text-black text-xl font-bold w-56'>Frontend</div>
                 <div className='grid grid-cols-4 gap-8 w-full'>
-                    <div>JavaScript</div>
-                    <div>TypeScript</div>
-                    <div>React</div>
-                    <div>JavaScript</div>
-                    <div>TypeScript</div>
-                    <div>React</div>
-                    <div>JavaScript</div>
-                    <div>TypeScript</div>
-                    <div>React</div>
-                    <div>JavaScript</div>
-                    <div>TypeScript</div>
-                    <div>React</div>
+                    {props.frontend.map((tech, index) => (
+                        <div key={index}>
+                            <img
+                                src={tech.icon}
+                                alt={tech.language}
+                            />
+                            <span>{tech.language}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
             {/* Backend */}

@@ -6,7 +6,7 @@ function Skills() {
     return (
         <div className='flex justify-center py-10 mx-auto max-w-4xl'>
             <TechCard
-                languages={data.technologies.languages}
+                frontend={data.technologies.frontend}
                 frameworks={data.technologies.frameworks}
             />
         </div>
