@@ -28,7 +28,7 @@ function App() {
            },
            {
                threshold: 0.1,
-               rootMargin: "-25% 0px -25% 0px"  // Only triggers when in center 50% of viewport
+               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
            }
        );
 
@@ -50,7 +50,7 @@ function App() {
            },
            {
                threshold: 0.1,
-               rootMargin: "-25% 0px -25% 0px"  // Only triggers when in center 50% of viewport
+               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
            }
        );
 
@@ -72,7 +72,7 @@ function App() {
            },
            {
                threshold: 0.1,
-               rootMargin: "-25% 0px -25% 0px"  // Only triggers when in center 50% of viewport
+               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
            }
        );
 
@@ -94,7 +94,7 @@ function App() {
            },
            {
                threshold: 0.1,
-               rootMargin: "-25% 0px -25% 0px"  // Only triggers when in center 50% of viewport
+               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
            }
        );
 
