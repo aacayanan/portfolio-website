@@ -1,42 +1,33 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {useLocation, useNavigate} from "react-router-dom";
 
 function Navbar() {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const isActive = location.pathname;
     const [showAlert, setShowAlert] = useState(true);
 
     const navLinks = [
-        {name: "Home", path: "/"},
-        {name: "Experience", path: "/experience"},
-        {name: "Skills", path: "/skills"},
-        {name: "Projects", path: "/projects"},
+        {name: "Home", path: "#home"},
+        {name: "Experience", path: "#experience"},
+        {name: "Skills", path: "#skills"},
+        {name: "Projects", path: "#projects"},
     ];
 
     return (
         <div>
             <div className="flex justify-around items-center h-18 text-lg select-none">
                 <div
-                    onClick={() => navigate("/")}
+                    onClick={() => window.scrollTo(0, 0)}
                     className='cursor-pointer text-nowrap'
                 >
                     Aaron Cayanan
                 </div>
                 <div className='flex gap-5 hidden md:flex'>
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.path}
-                            to={link.path}
-                            className={`${
-                                isActive === link.path
-                                    ? "text-blue-500 underline underline-offset-4"
-                                    : "text-gray-700 hover:text-black"
-                            }`}
+                            href={link.path}
+                            className="text-gray-700 hover:text-black"
                         >
                             {link.name}
-                        </Link>
+                        </a>
                     ))}
                 </div>
                 <button

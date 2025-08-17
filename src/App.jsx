@@ -1,21 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Experience from './pages/Experience';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects.jsx';
+import Experience from "./pages/Experience.jsx";
 
 function App() {
   return (
-    <Router>
+    <div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
-    </Router>
+      <div id="home">
+        <Home />
+      </div>
+        <div id="experience">
+        <Experience />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+    </div>
   );
 }
 
