@@ -11,7 +11,7 @@ function Navbar() {
     ];
 
     return (
-        <div>
+        <div className='fixed top-0 left-0 w-full z-40 bg-white'>
             <div className="flex justify-around items-center h-18 text-lg select-none">
                 <div
                     onClick={() => window.scrollTo(0, 0)}
