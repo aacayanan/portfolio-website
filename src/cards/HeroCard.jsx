@@ -18,7 +18,7 @@ function HeroCard(props) {
     ]
 
     return (
-        <div className='flex flex-col-reverse gap-16 justify-center items-center lg:flex-row animate-float-up opacity-0 [animation-fill-mode:forwards]'>
+        <div className='flex flex-col-reverse gap-16 justify-center items-center lg:flex-row'>
             <div className='flex flex-col gap-8 justify-center'>
                 {/* Headline */}
                 <div className='flex flex-col gap-1 text-center lg:text-left'>
