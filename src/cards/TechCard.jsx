@@ -8,72 +8,33 @@ TechCard.propTypes = {
 };
 
 function TechCard(props) {
+    const data = [
+        {title: 'Frontend', data: props.frontend},
+        {title: 'Backend', data: props.backend},
+        {title: 'Database', data: props.database},
+        {title: 'Tools', data: props.tools}
+    ]
+
     return (
         <div className='flex flex-col gap-20 w-full'>
             {/* Frontend */}
-            <div className='flex'>
-                <div className='text-black text-xl font-bold w-56'>Frontend</div>
-                <div className='grid grid-cols-4 gap-8 w-full'>
-                    {props.frontend.map((tech, index) => (
-                        <div key={index} className='flex gap-2 items-center'>
-                            <img
-                                src={tech.icon}
-                                alt={tech.language}
-                                className='h-6 w-6'
-                            />
-                            <span className='text-lg text-nowrap'>{tech.language}</span>
-                        </div>
-                    ))}
+            {data.map((section) => (
+                <div key={section.title} className='flex'>
+                    <div className='text-black text-xl font-bold w-56'>{section.title}</div>
+                    <div className='grid grid-cols-4 gap-8 w-full'>
+                        {section.data.map((tech, index) => (
+                            <div key={index} className='flex gap-2 items-center'>
+                                <img
+                                    src={tech.icon}
+                                    alt={tech.language}
+                                    className='h-6 w-6'
+                                />
+                                <span className='text-lg text-nowrap'>{tech.language}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-            {/* Backend */}
-            <div className='flex'>
-                <div className='text-black text-xl font-bold w-56'>Backend</div>
-                <div className='grid grid-cols-4 gap-8 w-full'>
-                    {props.backend.map((tech, index) => (
-                        <div key={index} className='flex gap-2 items-center'>
-                            <img
-                                src={tech.icon}
-                                alt={tech.language}
-                                className='h-6 w-6'
-                            />
-                            <span className='text-lg text-nowrap'>{tech.language}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            {/* Database */}
-            <div className='flex'>
-                <div className='text-black text-xl font-bold w-56'>Database</div>
-                <div className='grid grid-cols-4 gap-8 w-full'>
-                    {props.database.map((tech, index) => (
-                        <div key={index} className='flex gap-2 items-center'>
-                            <img
-                                src={tech.icon}
-                                alt={tech.language}
-                                className='h-6 w-6'
-                            />
-                            <span className='text-lg text-nowrap'>{tech.language}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            {/* Tools */}
-            <div className='flex'>
-                <div className='text-black text-xl font-bold w-56'>Tools</div>
-                <div className='grid grid-cols-4 gap-8 w-full'>
-                    {props.tools.map((tech, index) => (
-                        <div key={index} className='flex gap-2 items-center'>
-                            <img
-                                src={tech.icon}
-                                alt={tech.language}
-                                className='h-6 w-6'
-                            />
-                            <span className='text-lg text-nowrap'>{tech.language}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            ))}
         </div>
     );
 }
