@@ -12,7 +12,7 @@ function Experience() {
     ]
 
     return (
-        <div className='flex flex-col max-w-4xl mx-auto py-10'>
+        <div className='flex flex-col max-w-4xl mx-auto px-4 py-20'>
             {/* Tab Switcher */}
             <div className='relative flex w-full bg-gray-200 text-black text-lg font-semibold py-2 rounded-md'>
                 {/* Sliding Bar */}
