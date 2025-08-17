@@ -5,7 +5,7 @@ import data from "../data.json";
 function Home() {
 
     return (
-        <div className='flex flex-col py-24 px-12 justify-center'>
+        <div className='flex flex-col py-24 px-8 justify-center max-w-7xl mx-auto'>
             <HeroCard data={data.portfolio}/>
         </div>
     )
