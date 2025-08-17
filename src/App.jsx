@@ -114,7 +114,7 @@ function App() {
       <div id="experience" ref={experienceRef} className={isExperienceVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
         <Experience />
       </div>
-      <div id="skills" ref={skillsRef} className={isSkillsVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
+      <div id="skills">
         <Skills />
       </div>
       <div id="projects" ref={projectsRef} className={isProjectsVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
