@@ -8,3 +8,35 @@
     --color-secondary-accent: rgba(63, 98, 161, 1);
     --color-danger: #DE1212;
 }
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);  /* Start from below */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);     /* End at normal position */
+        opacity: 1;
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-float-up {
+    opacity: 0;
+    animation: floatUp 0.5s ease-out forwards;
+}
