@@ -19,9 +19,9 @@ function TechCard(props) {
         <div className='flex flex-col gap-20 w-full'>
             {/* Frontend */}
             {data.map((section) => (
-                <div key={section.title} className='flex'>
-                    <div className='text-black text-xl font-bold w-56'>{section.title}</div>
-                    <div className='grid grid-cols-4 gap-8 w-full'>
+                <div key={section.title} className='flex flex-col md:flex-row'>
+                    <div className='text-black text-xl font-bold w-56 h-12'>{section.title}</div>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 w-full'>
                         {section.data.map((tech, index) => (
                             <div key={index} className='flex gap-2 items-center'>
                                 <img
