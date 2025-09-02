@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import profilePicture from "../assets/pfp.jpg";
+import RadialMenu from "../components/RadialMenu.jsx";
 
 HeroCard.propTypes = {
     data: PropTypes.object.isRequired
@@ -40,7 +41,12 @@ function HeroCard(props) {
                     {description}
                 </div>
             </div>
-            <img src={profilePicture} alt="Profile" className='w-56 h-xl xl:w-lg lg:w-md rounded-2xl p-2 object-contain'/>
+            <div className='group'>
+                <img src={profilePicture} alt="Profile" className='w-56 h-xl xl:w-lg lg:w-md rounded-2xl p-2 object-contain'/>
+                <div className='opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out'>
+                    <RadialMenu />
+                </div>
+            </div>
         </div>
     );
 }
