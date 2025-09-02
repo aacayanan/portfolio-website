@@ -32,7 +32,7 @@ function Navbar() {
                 </div>
                 <button
                     onClick={() => window.open("https://aaroncayanan.com/resume", "_blank")}
-                    className='border-2 border-gray-700 text-lg rounded-md px-2 py-1 hover:bg-gray-700 hover:text-white transition-colors duration-300'
+                    className="cursor-pointer group relative flex gap-1.5 px-6 py-2.5 text-gray-700 bg-opacity-80 rounded-lg hover:text-black hover:underline transition"
                 >
                     Resume
                 </button>
