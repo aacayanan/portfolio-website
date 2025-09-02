@@ -17,6 +17,15 @@ function App() {
    const skillsRef = useRef(null);
    const projectsRef = useRef(null);
 
+   // Scroll to top on load
+    useEffect(() => {
+        // Prevent browser from restoring scroll position
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    }, []);
+
    // Observer for Home section
    useEffect(() => {
        const observer = new IntersectionObserver(
