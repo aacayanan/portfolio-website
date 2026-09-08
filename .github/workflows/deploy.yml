@@ -32,3 +32,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local_dir: ./dist
           remote_dir: ./
+          ssl_verify_certificate: false
