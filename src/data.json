@@ -110,19 +110,19 @@
       "company": "JSB Center for AI at San Diego State University",
       "position": "Research Assistant",
       "duration": "Aug 2025 - Feb 2026",
-      "description": "I gave a robot faces and trained it to recognize emotions based on generated semantics and emojis."
+      "description": "I gave a robot faces and trained it to recognize emotions based on generated semantics and emojis. Put a live dashboard on a Steam Deck with WebSockets to control the movement, monitor video feed, and incoming/outgoing data. Oh, and I added an emote wheel."
     },
     {
       "company": "LiaiZen",
       "position": "Software Engineer Intern",
       "duration": "Jun 2025 - Aug 2025",
-      "description": "Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping. Translated ideas into structured Figma mockups and participated in cross-functional meetings."
+      "description": "Shipped the landing page, built the waitlist from scratch, and gave the calendar a massive visual upgrade. Also made the app mobile-friendly and built AI agents that supervise each other (the drama kept me entertained)."
     },
     {
       "company": "Scale AI",
       "position": "AI Code Trainer",
       "duration": "Feb 2024 - Dec 2024",
-      "description": "Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models with emphasis on clarity, correctness, and robustness."
+      "description": "Basically tutored large language models on how to write good code. Turned complicated prompts into clean, secure scripts across five different langauge with focus on Python and Java (pre-coding agents, btw)."
     }
   ],
   "education": [
@@ -148,7 +148,7 @@
   "projects": [
     {
       "name": "tetherd",
-      "description": "A minimalist daily reflection and tracking app designed to keep you connected to what matters. Whether it's a safety net for your relationship or a commitment to your personal growth and friendships, Tetherd ensures you're staying connected on purpose.",
+      "description": "A minimalist React Native daily reflection app. Designed to track interpersonal commitments and personal growth metrics, providing users with structured insights into their relationship health and daily habits. \"Keep your life, and your relationships, tetherd together\" ",
       "tags": [
         "Expo (React Native)",
         "Zustand",
@@ -159,7 +159,7 @@
     },
     {
       "name": "ouroboros",
-      "description": "An autonomous QA testing system where three parallel AI agents find bugs in a live web app and another AI agent fixes them, in a closed loop until all issues are resolved.",
+      "description": "An autonomous QA testing system where three parallel AI agents find bugs in a live web app and another AI agent fixes them, in a closed loop until all issues are resolved (made in 24 hour hackathon).",
       "tags": [
         "Python",
         "BrowserUse",
@@ -170,7 +170,7 @@
     },
     {
       "name": "Multimodal Emotion Detection",
-      "description": "a wellness tracking application that uses a multimodal ML pipeline to analyze your daily selfies and provide emotional insights. It specifically helps detect patterns like Seasonal Affective Disorder (SAD) by tracking your \"vibe trend\" throughout the year.",
+      "description": "A wellness tracking application that uses a multimodal ML pipeline to analyze your daily selfies and provide emotional insights. It specifically helps detect patterns like Seasonal Affective Disorder (SAD) by tracking your \"vibe trend\" throughout the year. Competes with state-of-the-art models using significantly fewer inputs.",
       "tags": [
         "Python",
         "PyTorch",

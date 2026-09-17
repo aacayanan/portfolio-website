@@ -133,16 +133,20 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
   position: absolute;
   bottom: calc(100% + 12px);
   left: 50%;
+  transform: translateX(-50%) scale(0.4) translateY(8px) rotate(-3deg);
+  opacity: 0;
   transform-origin: bottom center;
   pointer-events: none;
   z-index: 20;
-  /* Base state = exit animation. Plays once on load (harmless, card is hidden).
-     On hover, catCardIn overrides this entire shorthand. */
-  animation: catCardOut 0.2s ease-in forwards;
 }
 
-.cat-trigger:hover .cat-card {
+/* Animations only active after page load — prevents flash on mount */
+body.loaded .cat-trigger:hover .cat-card {
   animation: catCardIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+body.loaded .cat-card:not(:hover) {
+  animation: catCardOut 0.2s ease-in forwards;
 }
 
 /* Reduced motion: instant show/hide, no spatial movement */

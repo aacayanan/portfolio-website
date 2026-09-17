@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import data from '../data.json';
 
 export default function Home() {
   const { jobHeader, location } = data.portfolio;
+
+  useEffect(() => {
+    document.body.classList.add('loaded');
+  }, []);
 
   return (
     <section id="home" className="mb-4">
