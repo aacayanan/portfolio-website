@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalist — Portfolio Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --fg: #1A1A1A;
+      --fg-muted: #8A8A88;
+      --accent: #2563EB;
+      --border: #E8E8E4;
+      --selection: rgba(37, 99, 235, 0.1);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F0F0F;
+        --fg: #E8E8E4;
+        --fg-muted: #6B6B68;
+        --accent: #60A5FA;
+        --border: #262626;
+        --selection: rgba(96, 165, 250, 0.15);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: var(--selection); }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg); color: var(--fg);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout — editorial two-column */
+    .page {
+      display: grid;
+      grid-template-columns: 1fr min(65ch, 100%) 1fr;
+      padding: 0 1.5rem;
+    }
+    .page > * { grid-column: 2; }
+
+    /* Sidebar strip */
+    .strip {
+      position: fixed; left: 0; top: 0; bottom: 0;
+      width: 48px; border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      padding: 2rem 0;
+      z-index: 10;
+    }
+    @media (max-width: 768px) { .strip { display: none; } }
+    .strip-name {
+      writing-mode: vertical-rl; text-orientation: mixed;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--fg-muted); text-transform: uppercase;
+      transform: rotate(180deg);
+    }
+    .strip nav {
+      display: flex; flex-direction: column; gap: 1.25rem;
+      writing-mode: vertical-rl; text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+    .strip nav a {
+      font-size: 0.6rem; color: var(--fg-muted); text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .strip nav a:hover { color: var(--fg); }
+
+    /* Main content */
+    .content { padding: 6rem 0 4rem; }
+    @media (max-width: 768px) { .content { padding: 5rem 0 3rem; } }
+
+    /* Nav */
+    .topnav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 6rem;
+    }
+    .topnav-name {
+      font-size: 0.85rem; font-weight: 500; letter-spacing: -0.01em;
+    }
+    .topnav-links { display: flex; gap: 2rem; }
+    .topnav-links a {
+      font-size: 0.8rem; color: var(--fg-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .topnav-links a:hover { color: var(--fg); }
+    @media (max-width: 600px) {
+      .topnav-links { gap: 1.25rem; }
+    }
+
+    /* Hero */
+    .hero { margin-bottom: 6rem; }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 300; letter-spacing: -0.04em;
+      line-height: 1.1; margin-bottom: 2rem;
+    }
+    .hero p {
+      font-size: 1.05rem; color: var(--fg-muted); line-height: 1.7;
+      max-width: 50ch; margin-bottom: 2.5rem;
+    }
+    .hero-links {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .hero-links a {
+      font-size: 0.85rem; color: var(--fg-muted); text-decoration: none;
+      position: relative; padding-bottom: 2px;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .hero-links a:hover { color: var(--fg); border-color: var(--fg); }
+
+    /* Divider */
+    hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 5rem 0;
+    }
+
+    /* Section */
+    .section-title {
+      font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--fg-muted); margin-bottom: 2.5rem;
+    }
+
+    /* Experience */
+    .exp-tabs {
+      display: flex; gap: 1.5rem; margin-bottom: 2rem;
+    }
+    .exp-tab {
+      font-size: 0.8rem; background: none; border: none;
+      color: var(--fg-muted); cursor: pointer; padding: 0;
+      transition: color 0.2s;
+    }
+    .exp-tab.active { color: var(--fg); font-weight: 500; }
+    .exp-tab:hover:not(.active) { color: var(--fg); }
+
+    .exp-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-top {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 1rem; margin-bottom: 0.25rem;
+    }
+    .exp-company { font-size: 1rem; font-weight: 500; }
+    .exp-date { font-size: 0.75rem; color: var(--fg-muted); white-space: nowrap; }
+    .exp-role { font-size: 0.85rem; color: var(--fg-muted); margin-bottom: 0.75rem; }
+    .exp-desc { font-size: 0.85rem; color: var(--fg-muted); line-height: 1.7; }
+
+    /* Skills */
+    .skills-list {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .skill-row {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 1rem; align-items: baseline;
+    }
+    @media (max-width: 500px) { .skill-row { grid-template-columns: 1fr; gap: 0.25rem; } }
+    .skill-label {
+      font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .skill-values {
+      font-size: 0.9rem; color: var(--fg); line-height: 1.7;
+    }
+
+    /* Projects */
+    .project-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-item:last-child { border-bottom: none; }
+    .project-top {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 1rem; margin-bottom: 0.4rem;
+    }
+    .project-name { font-size: 1rem; font-weight: 500; }
+    .project-desc { font-size: 0.85rem; color: var(--fg-muted); line-height: 1.7; margin-bottom: 0.75rem; }
+    .project-meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .project-tag { font-size: 0.75rem; color: var(--fg-muted); }
+    .project-link {
+      font-size: 0.75rem; color: var(--fg-muted); text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: all 0.2s;
+    }
+    .project-link:hover { color: var(--fg); border-color: var(--fg); }
+    .dot { color: var(--fg-muted); font-size: 0.6rem; }
+
+    /* Footer */
+    .footer {
+      margin-top: 5rem; padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem; color: var(--fg-muted);
+    }
+
+    /* Mobile nav */
+    .mobilenav {
+      display: none; position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50; background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem; height: 3rem;
+      align-items: center; justify-content: space-between;
+    }
+    @media (max-width: 768px) { .mobilenav { display: flex; } }
+    .mobilenav-name { font-size: 0.8rem; font-weight: 500; }
+    .mobilenav-links { display: flex; gap: 1.25rem; }
+    .mobilenav-links a { font-size: 0.7rem; color: var(--fg-muted); text-decoration: none; }
+    .mobilenav-links a:hover { color: var(--fg); }
+
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav class="mobilenav">
+    <span class="mobilenav-name">Aaron Cayanan</span>
+    <div class="mobilenav-links">
+      <a href="#home">home</a>
+      <a href="#experience">exp</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+    </div>
+  </nav>
+
+  <div class="strip">
+    <span class="strip-name">Aaron Cayanan</span>
+    <nav>
+      <a href="#home">home</a>
+      <a href="#experience">exp</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+    </nav>
+  </div>
+
+  <div class="page">
+    <div class="content">
+      <!-- Nav -->
+      <div class="topnav reveal">
+        <span class="topnav-name">Aaron Cayanan</span>
+        <div class="topnav-links">
+          <a href="#experience">experience</a>
+          <a href="#skills">skills</a>
+          <a href="#projects">projects</a>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section id="home" class="hero reveal">
+        <h1>Software engineer<br>based in San Diego.</h1>
+        <p>A software engineer and computer science student building end-to-end applications with focus on usability, performance, and scalability.</p>
+        <div class="hero-links">
+          <a href="https://github.com/aacayanan" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/aacayanan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:aaron@cayanan.dev">Email</a>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Experience -->
+      <section id="experience" class="reveal">
+        <div class="section-title">Experience</div>
+        <div class="exp-tabs">
+          <button class="exp-tab active" onclick="showTab('work')">Work</button>
+          <button class="exp-tab" onclick="showTab('edu')">Education</button>
+        </div>
+        <div id="tab-work">
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">LiaiZen</span>
+              <span class="exp-date">Jun 2025 — Present</span>
+            </div>
+            <div class="exp-role">Software Engineer Intern</div>
+            <div class="exp-desc">Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping.</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">Scale AI</span>
+              <span class="exp-date">Feb 2024 — Dec 2024</span>
+            </div>
+            <div class="exp-role">AI Code Trainer</div>
+            <div class="exp-desc">Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models.</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">Crazy Science: Robotics</span>
+              <span class="exp-date">Feb 2025 — Present</span>
+            </div>
+            <div class="exp-role">After School Robotics Instructor</div>
+            <div class="exp-desc">Teaching block-based programming and robotics to elementary students using VEX Go and Cubelets. Leading after-school classes of up to 20 students.</div>
+          </div>
+        </div>
+        <div id="tab-edu" style="display:none;">
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">San Diego State University</span>
+              <span class="exp-date">2027</span>
+            </div>
+            <div class="exp-role">Bachelor of Science in Computer Science</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">San Diego Mesa College</span>
+              <span class="exp-date">2025</span>
+            </div>
+            <div class="exp-role">Associate of Science for Transfer in Computer Science</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-top">
+              <span class="exp-company">San Diego Miramar College</span>
+              <span class="exp-date">2022</span>
+            </div>
+            <div class="exp-role">Associate of Science in Biology for Allied Health</div>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Skills -->
+      <section id="skills" class="reveal">
+        <div class="section-title">Skills</div>
+        <div class="skills-list">
+          <div class="skill-row">
+            <span class="skill-label">Frontend</span>
+            <span class="skill-values">TypeScript · JavaScript · React · Tailwind · Next.js · Figma · HTML · CSS</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Backend</span>
+            <span class="skill-values">Python · Flask · FastAPI · Node.js · Java · C/C++</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Database</span>
+            <span class="skill-values">PostgreSQL · SQLite</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Tools</span>
+            <span class="skill-values">Git/GitHub · Supabase · Docker · GitHub Actions · Jest</span>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- Projects -->
+      <section id="projects" class="reveal">
+        <div class="section-title">Projects</div>
+        <div class="project-item">
+          <div class="project-top">
+            <span class="project-name">Portfolio Website</span>
+          </div>
+          <div class="project-desc">Personal developer portfolio built with React, Vite, and Tailwind CSS. Features dark mode, scroll animations, and responsive design.</div>
+          <div class="project-meta">
+            <span class="project-tag">React</span>
+            <span class="dot">·</span>
+            <span class="project-tag">Vite</span>
+            <span class="dot">·</span>
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="dot">·</span>
+            <a href="https://github.com/aacayanan/portfolio-website" target="_blank" class="project-link">source</a>
+            <a href="https://aaroncayanan.com" target="_blank" class="project-link">live</a>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-top"><span class="project-name">Project Two</span></div>
+          <div class="project-desc">A brief description of your second project. Replace this with real content.</div>
+          <div class="project-meta">
+            <span class="project-tag">Tag1</span>
+            <span class="dot">·</span>
+            <span class="project-tag">Tag2</span>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-top"><span class="project-name">Project Three</span></div>
+          <div class="project-desc">A brief description of your third project. Replace this with real content.</div>
+          <div class="project-meta">
+            <span class="project-tag">Tag1</span>
+            <span class="dot">·</span>
+            <span class="project-tag">Tag2</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">Last updated Sep. 2026</footer>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('tab-work').style.display = tab === 'work' ? 'block' : 'none';
+      document.getElementById('tab-edu').style.display = tab === 'edu' ? 'block' : 'none';
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '-5% 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

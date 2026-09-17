@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative — Portfolio Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0C0A09;
+      --fg: #FAFAF9;
+      --fg-muted: #A8A29E;
+      --accent-1: #F97316;
+      --accent-2: #8B5CF6;
+      --accent-3: #06B6D4;
+      --surface: #1C1917;
+      --surface-light: #292524;
+      --border: #44403C;
+      --selection: rgba(249, 115, 22, 0.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: var(--selection); color: var(--fg); }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg); color: var(--fg);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 1000;
+      pointer-events: none; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.5rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      mix-blend-mode: difference;
+    }
+    @media (max-width: 768px) { .nav { padding: 1rem 1.25rem; } }
+    .nav-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.8rem; color: var(--fg); text-decoration: none;
+      opacity: 0.6; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    @media (max-width: 600px) { .nav-links { gap: 1rem; } }
+    @media (max-width: 480px) { .nav-links { display: none; } }
+
+    /* Hero — full viewport */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+    @media (max-width: 768px) { .hero { padding: 5rem 1.25rem 3rem; } }
+
+    .hero-eyebrow {
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent-1);
+      margin-bottom: 1.5rem; font-weight: 500;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 800; letter-spacing: -0.04em;
+      line-height: 0.95; margin-bottom: 2.5rem;
+    }
+    .hero h1 .line-2 {
+      display: block;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-bottom {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem; color: var(--fg-muted);
+      max-width: 42ch; line-height: 1.7;
+    }
+
+    .hero-links { display: flex; gap: 1.25rem; }
+    .hero-links a {
+      font-size: 0.8rem; color: var(--fg); text-decoration: none;
+      padding: 0.6rem 1.25rem; border: 1px solid var(--border);
+      border-radius: 100px; transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+    .hero-links a:hover {
+      background: var(--fg); color: var(--bg);
+      border-color: var(--fg);
+    }
+
+    /* Decorative blobs */
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.15; pointer-events: none;
+    }
+    .blob-1 {
+      width: 400px; height: 400px; background: var(--accent-1);
+      top: 10%; right: 5%;
+    }
+    .blob-2 {
+      width: 300px; height: 300px; background: var(--accent-2);
+      bottom: 15%; left: 10%;
+    }
+    @media (max-width: 768px) {
+      .blob { width: 200px; height: 200px; }
+      .blob-1 { top: 5%; right: -10%; }
+      .blob-2 { bottom: 10%; left: -5%; }
+    }
+
+    /* Content wrapper */
+    .content { padding: 0 2rem; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 768px) { .content { padding: 0 1.25rem; } }
+
+    /* Section title */
+    .section-head {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent-3);
+      margin-bottom: 2.5rem; font-weight: 600;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-head::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* Section spacing */
+    .section { margin-bottom: 6rem; }
+
+    /* Experience — alternating cards */
+    .exp-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+    }
+    .exp-tab {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem; padding: 0.5rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; color: var(--fg-muted);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .exp-tab.active {
+      background: var(--accent-1); color: var(--bg);
+      border-color: var(--accent-1);
+    }
+    .exp-tab:hover:not(.active) { border-color: var(--fg-muted); color: var(--fg); }
+
+    .exp-card {
+      padding: 1.75rem; background: var(--surface);
+      border-radius: 12px; border: 1px solid var(--border);
+      margin-bottom: 1rem; transition: border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+    }
+    .exp-card:nth-child(1)::before { background: var(--accent-1); }
+    .exp-card:nth-child(2)::before { background: var(--accent-2); }
+    .exp-card:nth-child(3)::before { background: var(--accent-3); }
+    .exp-card:hover { border-color: var(--fg-muted); }
+
+    .exp-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem;
+    }
+    .exp-company {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+    }
+    .exp-date {
+      font-size: 0.7rem; color: var(--fg-muted);
+      white-space: nowrap; padding-top: 0.2rem;
+    }
+    .exp-role { font-size: 0.85rem; color: var(--fg-muted); margin-bottom: 0.75rem; }
+    .exp-desc { font-size: 0.85rem; color: var(--fg-muted); line-height: 1.7; }
+
+    /* Skills — bento grid */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    @media (max-width: 768px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 400px) { .bento { grid-template-columns: 1fr; } }
+
+    .bento-cell {
+      padding: 1.25rem; background: var(--surface);
+      border-radius: 10px; border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    .bento-cell:hover { border-color: var(--fg-muted); }
+    .bento-cell:nth-child(1) { border-top: 2px solid var(--accent-1); }
+    .bento-cell:nth-child(2) { border-top: 2px solid var(--accent-2); }
+    .bento-cell:nth-child(3) { border-top: 2px solid var(--accent-3); }
+    .bento-cell:nth-child(4) { border-top: 2px solid var(--accent-1); }
+
+    .bento-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--fg-muted);
+      margin-bottom: 0.9rem; font-weight: 600;
+    }
+    .bento-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .bento-tag {
+      font-size: 0.7rem; padding: 0.25rem 0.6rem;
+      background: var(--surface-light); border-radius: 100px;
+      color: var(--fg-muted);
+    }
+
+    /* Projects — large cards */
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem; margin-bottom: 1.25rem;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .project-card:hover {
+      border-color: var(--fg-muted);
+      transform: translateY(-2px);
+    }
+    .project-card::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 200px; height: 200px; border-radius: 50%;
+      filter: blur(60px); opacity: 0.08; pointer-events: none;
+    }
+    .project-card:nth-child(1)::after { background: var(--accent-1); }
+    .project-card:nth-child(2)::after { background: var(--accent-2); }
+    .project-card:nth-child(3)::after { background: var(--accent-3); }
+
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.9rem; color: var(--fg-muted); line-height: 1.7;
+      margin-bottom: 1.25rem; max-width: 55ch;
+    }
+    .project-footer {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.75rem;
+    }
+    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .project-tag {
+      font-size: 0.65rem; padding: 0.2rem 0.55rem;
+      background: var(--surface-light); border-radius: 100px;
+      color: var(--fg-muted);
+    }
+    .project-links { display: flex; gap: 1rem; }
+    .project-links a {
+      font-size: 0.75rem; color: var(--fg-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .project-links a:hover { color: var(--fg); }
+
+    /* Footer */
+    .footer {
+      margin-top: 6rem; padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-text { font-size: 0.7rem; color: var(--fg-muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.7rem; color: var(--fg-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--fg); }
+
+    /* Mobile nav */
+    .mobilenav {
+      display: none; position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50; background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.25rem; height: 3.25rem;
+      align-items: center; justify-content: space-between;
+    }
+    @media (max-width: 480px) { .mobilenav { display: flex; } }
+    .mobilenav-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+    }
+    .mobilenav-links { display: flex; gap: 1rem; }
+    .mobilenav-links a { font-size: 0.7rem; color: var(--fg-muted); text-decoration: none; }
+
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav class="mobilenav">
+    <span class="mobilenav-name">A.C.</span>
+    <div class="mobilenav-links">
+      <a href="#home">home</a>
+      <a href="#experience">exp</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+    </div>
+  </nav>
+
+  <nav class="nav">
+    <span class="nav-name">Aaron Cayanan</span>
+    <div class="nav-links">
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="hero-eyebrow reveal">Software Engineer · San Diego, CA</div>
+    <h1 class="reveal">
+      I build things<br>
+      <span class="line-2">that matter.</span>
+    </h1>
+    <div class="hero-bottom reveal">
+      <p class="hero-desc">A software engineer and computer science student building end-to-end applications with focus on usability, performance, and scalability.</p>
+      <div class="hero-links">
+        <a href="https://github.com/aacayanan" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/aacayanan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:aaron@cayanan.dev">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="content">
+    <!-- Experience -->
+    <section id="experience" class="section reveal">
+      <div class="section-head">Experience</div>
+      <div class="exp-tabs">
+        <button class="exp-tab active" onclick="showTab('work')">Work</button>
+        <button class="exp-tab" onclick="showTab('edu')">Education</button>
+      </div>
+      <div id="tab-work">
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">LiaiZen</span>
+            <span class="exp-date">Jun 2025 — Present</span>
+          </div>
+          <div class="exp-role">Software Engineer Intern</div>
+          <div class="exp-desc">Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">Scale AI</span>
+            <span class="exp-date">Feb 2024 — Dec 2024</span>
+          </div>
+          <div class="exp-role">AI Code Trainer</div>
+          <div class="exp-desc">Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">Crazy Science: Robotics</span>
+            <span class="exp-date">Feb 2025 — Present</span>
+          </div>
+          <div class="exp-role">After School Robotics Instructor</div>
+          <div class="exp-desc">Teaching block-based programming and robotics to elementary students using VEX Go and Cubelets. Leading after-school classes of up to 20 students.</div>
+        </div>
+      </div>
+      <div id="tab-edu" style="display:none;">
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">San Diego State University</span>
+            <span class="exp-date">2027</span>
+          </div>
+          <div class="exp-role">Bachelor of Science in Computer Science</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">San Diego Mesa College</span>
+            <span class="exp-date">2025</span>
+          </div>
+          <div class="exp-role">Associate of Science for Transfer in Computer Science</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <span class="exp-company">San Diego Miramar College</span>
+            <span class="exp-date">2022</span>
+          </div>
+          <div class="exp-role">Associate of Science in Biology for Allied Health</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section reveal">
+      <div class="section-head">Skills</div>
+      <div class="bento">
+        <div class="bento-cell">
+          <div class="bento-label">Frontend</div>
+          <div class="bento-tags">
+            <span class="bento-tag">TypeScript</span>
+            <span class="bento-tag">JavaScript</span>
+            <span class="bento-tag">React</span>
+            <span class="bento-tag">Tailwind</span>
+            <span class="bento-tag">Next.js</span>
+            <span class="bento-tag">Figma</span>
+            <span class="bento-tag">HTML</span>
+            <span class="bento-tag">CSS</span>
+          </div>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-label">Backend</div>
+          <div class="bento-tags">
+            <span class="bento-tag">Python</span>
+            <span class="bento-tag">Flask</span>
+            <span class="bento-tag">FastAPI</span>
+            <span class="bento-tag">Node.js</span>
+            <span class="bento-tag">Java</span>
+            <span class="bento-tag">C/C++</span>
+          </div>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-label">Database</div>
+          <div class="bento-tags">
+            <span class="bento-tag">PostgreSQL</span>
+            <span class="bento-tag">SQLite</span>
+          </div>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-label">Tools</div>
+          <div class="bento-tags">
+            <span class="bento-tag">Git/GitHub</span>
+            <span class="bento-tag">Supabase</span>
+            <span class="bento-tag">Docker</span>
+            <span class="bento-tag">GitHub Actions</span>
+            <span class="bento-tag">Jest</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section reveal">
+      <div class="section-head">Projects</div>
+      <div class="project-card">
+        <div class="project-name">Portfolio Website</div>
+        <div class="project-desc">Personal developer portfolio built with React, Vite, and Tailwind CSS. Features dark mode, scroll animations, and responsive design.</div>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Vite</span>
+            <span class="project-tag">Tailwind CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/aacayanan/portfolio-website" target="_blank">source</a>
+            <a href="https://aaroncayanan.com" target="_blank">live</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Project Two</div>
+        <div class="project-desc">A brief description of your second project. Replace this with real content.</div>
+        <div class="project-footer">
+          <div class="project-tags"><span class="project-tag">Tag1</span><span class="project-tag">Tag2</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Project Three</div>
+        <div class="project-desc">A brief description of your third project. Replace this with real content.</div>
+        <div class="project-footer">
+          <div class="project-tags"><span class="project-tag">Tag1</span><span class="project-tag">Tag2</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">Last updated Sep. 2026</span>
+    <div class="footer-links">
+      <a href="https://github.com/aacayanan" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/aacayanan" target="_blank">LinkedIn</a>
+      <a href="mailto:aaron@cayanan.dev">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('tab-work').style.display = tab === 'work' ? 'block' : 'none';
+      document.getElementById('tab-edu').style.display = tab === 'edu' ? 'block' : 'none';
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '-5% 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

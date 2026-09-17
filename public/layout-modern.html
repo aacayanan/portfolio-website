@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern & Tech — Portfolio Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0A0B;
+      --bg-card: #111113;
+      --bg-elevated: #18181B;
+      --fg: #E4E4E7;
+      --fg-dim: #71717A;
+      --fg-muted: #52525B;
+      --accent: #22D3EE;
+      --accent-dim: #0E7490;
+      --accent-glow: rgba(34, 211, 238, 0.12);
+      --border: #27272A;
+      --border-bright: #3F3F46;
+      --grid-line: rgba(63, 63, 70, 0.25);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: rgba(34, 211, 238, 0.2); color: var(--fg); }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 100vh;
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky; top: 0; height: 100vh;
+      border-right: 1px solid var(--border);
+      padding: 2.5rem 1.25rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: var(--bg);
+    }
+    @media (max-width: 900px) { .sidebar { display: none; } }
+
+    .sidebar-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; font-weight: 600; color: var(--accent);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .sidebar-name span { color: var(--fg-muted); font-weight: 400; }
+    .sidebar nav { display: flex; flex-direction: column; gap: 0.4rem; }
+    .sidebar nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--fg-muted); text-decoration: none;
+      padding: 0.3rem 0.6rem; border-radius: 3px; transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .sidebar nav a::before { content: '›'; color: var(--border-bright); transition: color 0.2s; }
+    .sidebar nav a:hover { color: var(--fg); background: var(--bg-elevated); }
+    .sidebar nav a:hover::before { color: var(--accent); }
+    .sidebar-footer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; color: var(--fg-muted); line-height: 1.6;
+    }
+
+    /* Main */
+    .main { padding: 4rem 3rem 6rem; max-width: 760px; }
+    @media (max-width: 900px) { .main { padding: 5rem 1.25rem 4rem; } }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.15em; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Hero */
+    .hero { margin-bottom: 5rem; }
+    .hero h1 {
+      font-size: 2.75rem; font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 0.75rem;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; color: var(--fg-dim); margin-bottom: 2rem;
+    }
+    .hero-desc {
+      font-size: 0.95rem; color: var(--fg-dim); line-height: 1.7;
+      max-width: 55ch; margin-bottom: 2.5rem;
+    }
+    .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .social-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--fg-muted); text-decoration: none;
+      padding: 0.45rem 0.9rem; border: 1px solid var(--border);
+      border-radius: 3px; transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .social-links a:hover {
+      color: var(--accent); border-color: var(--accent-dim);
+      background: var(--accent-glow);
+    }
+    .social-links a .arrow { transition: transform 0.2s; }
+    .social-links a:hover .arrow { transform: translate(2px, -2px); }
+
+    /* Section */
+    .section { margin-bottom: 5rem; }
+    .tabs {
+      display: flex; gap: 0; margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; padding: 0.7rem 1.1rem;
+      background: none; border: none; color: var(--fg-muted);
+      cursor: pointer; transition: all 0.2s; position: relative;
+    }
+    .tab.active { color: var(--accent); }
+    .tab.active::after {
+      content: ''; position: absolute; bottom: -1px;
+      left: 0; right: 0; height: 2px; background: var(--accent);
+    }
+    .tab:hover:not(.active) { color: var(--fg-dim); }
+
+    .entry {
+      padding: 1.25rem; border: 1px solid var(--border);
+      border-radius: 5px; margin-bottom: 0.75rem;
+      background: var(--bg-card); transition: border-color 0.2s;
+    }
+    .entry:hover { border-color: var(--border-bright); }
+    .entry-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1rem; margin-bottom: 0.4rem;
+    }
+    .entry-title { font-size: 0.95rem; font-weight: 600; }
+    .entry-title .company { color: var(--accent); }
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--fg-muted);
+      white-space: nowrap; padding-top: 0.15rem;
+    }
+    .entry-role { font-size: 0.8rem; color: var(--fg-dim); margin-bottom: 0.6rem; }
+    .entry-desc { font-size: 0.8rem; color: var(--fg-muted); line-height: 1.6; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+    .skill-category {
+      padding: 1.1rem; border: 1px solid var(--border);
+      border-radius: 5px; background: var(--bg-card);
+    }
+    .skill-category-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; color: var(--accent); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 0.9rem;
+    }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .skill-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; padding: 0.25rem 0.55rem;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 2px; color: var(--fg-dim);
+    }
+
+    /* Projects */
+    .project-card {
+      padding: 1.25rem; border: 1px solid var(--border);
+      border-radius: 5px; background: var(--bg-card);
+      margin-bottom: 0.75rem; transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--border-bright); }
+    .project-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .project-desc { font-size: 0.8rem; color: var(--fg-muted); line-height: 1.6; margin-bottom: 0.9rem; }
+    .project-footer {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .project-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .project-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; padding: 0.2rem 0.45rem;
+      background: var(--accent-glow); border: 1px solid var(--accent-dim);
+      border-radius: 2px; color: var(--accent);
+    }
+    .project-links { display: flex; gap: 0.6rem; }
+    .project-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--fg-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .project-links a:hover { color: var(--accent); }
+
+    .footer {
+      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--fg-muted);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none; position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50; background: var(--bg); border-bottom: 1px solid var(--border);
+      padding: 0 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .mobile-nav { display: flex; align-items: center; justify-content: space-between; height: 3.25rem; }
+    }
+    .mobile-nav-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 600; color: var(--accent);
+    }
+    .mobile-nav-links { display: flex; gap: 0.8rem; }
+    .mobile-nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; color: var(--fg-muted); text-decoration: none;
+    }
+    .mobile-nav-links a:hover { color: var(--fg); }
+
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <nav class="mobile-nav">
+    <span class="mobile-nav-name">A.C.</span>
+    <div class="mobile-nav-links">
+      <a href="#home">home</a>
+      <a href="#experience">exp</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+    </div>
+  </nav>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-name">Aaron<br><span>Cayanan</span></div>
+      </div>
+      <nav>
+        <a href="#home">home</a>
+        <a href="#experience">experience</a>
+        <a href="#skills">skills</a>
+        <a href="#projects">projects</a>
+      </nav>
+      <div class="sidebar-footer">San Diego, CA<br>Software Engineer</div>
+    </aside>
+
+    <main class="main">
+      <section id="home" class="hero reveal">
+        <div class="section-label">// 01 — Introduction</div>
+        <h1>Building software<br>that <span class="accent">works.</span></h1>
+        <p class="hero-subtitle">Software Engineer · San Diego, CA</p>
+        <p class="hero-desc">A software engineer and computer science student building end-to-end applications with focus on usability, performance, and scalability.</p>
+        <div class="social-links">
+          <a href="https://github.com/aacayanan" target="_blank" rel="noopener noreferrer">github <span class="arrow">↗</span></a>
+          <a href="https://linkedin.com/in/aacayanan" target="_blank" rel="noopener noreferrer">linkedin <span class="arrow">↗</span></a>
+          <a href="mailto:aaron@cayanan.dev">email <span class="arrow">↗</span></a>
+        </div>
+      </section>
+
+      <section id="experience" class="section reveal">
+        <div class="section-label">// 02 — Experience</div>
+        <div class="tabs">
+          <button class="tab active" onclick="showTab('work')">work</button>
+          <button class="tab" onclick="showTab('edu')">education</button>
+        </div>
+        <div id="tab-work">
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">LiaiZen</span></div>
+              <div class="entry-date">Jun 2025 — Present</div>
+            </div>
+            <div class="entry-role">Software Engineer Intern</div>
+            <div class="entry-desc">Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping.</div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">Scale AI</span></div>
+              <div class="entry-date">Feb 2024 — Dec 2024</div>
+            </div>
+            <div class="entry-role">AI Code Trainer</div>
+            <div class="entry-desc">Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models.</div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">Crazy Science: Robotics</span></div>
+              <div class="entry-date">Feb 2025 — Present</div>
+            </div>
+            <div class="entry-role">After School Robotics Instructor</div>
+            <div class="entry-desc">Teaching block-based programming and robotics to elementary students using VEX Go and Cubelets. Leading after-school classes of up to 20 students.</div>
+          </div>
+        </div>
+        <div id="tab-edu" style="display:none;">
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">San Diego State University</span></div>
+              <div class="entry-date">2027</div>
+            </div>
+            <div class="entry-role">Bachelor of Science in Computer Science</div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">San Diego Mesa College</span></div>
+              <div class="entry-date">2025</div>
+            </div>
+            <div class="entry-role">Associate of Science for Transfer in Computer Science</div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title"><span class="company">San Diego Miramar College</span></div>
+              <div class="entry-date">2022</div>
+            </div>
+            <div class="entry-role">Associate of Science in Biology for Allied Health</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <div class="section-label">// 03 — Skills</div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="skill-category-title">Frontend</div>
+            <div class="skill-list">
+              <span class="skill-tag">TypeScript</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React</span><span class="skill-tag">Tailwind</span><span class="skill-tag">Next.js</span><span class="skill-tag">Figma</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-title">Backend</div>
+            <div class="skill-list">
+              <span class="skill-tag">Python</span><span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Node.js</span><span class="skill-tag">Java</span><span class="skill-tag">C/C++</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-title">Database</div>
+            <div class="skill-list">
+              <span class="skill-tag">PostgreSQL</span><span class="skill-tag">SQLite</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-title">Tools</div>
+            <div class="skill-list">
+              <span class="skill-tag">Git/GitHub</span><span class="skill-tag">Supabase</span><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Jest</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section reveal">
+        <div class="section-label">// 04 — Projects</div>
+        <div class="project-card">
+          <div class="project-name">Portfolio Website</div>
+          <div class="project-desc">Personal developer portfolio built with React, Vite, and Tailwind CSS. Features dark mode, scroll animations, and responsive design.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Vite</span><span class="project-tag">Tailwind CSS</span></div>
+            <div class="project-links">
+              <a href="https://github.com/aacayanan/portfolio-website" target="_blank">source ↗</a>
+              <a href="https://aaroncayanan.com" target="_blank">live ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Project Two</div>
+          <div class="project-desc">A brief description of your second project. Replace this with real content.</div>
+          <div class="project-footer"><div class="project-tags"><span class="project-tag">Tag1</span><span class="project-tag">Tag2</span></div></div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Project Three</div>
+          <div class="project-desc">A brief description of your third project. Replace this with real content.</div>
+          <div class="project-footer"><div class="project-tags"><span class="project-tag">Tag1</span><span class="project-tag">Tag2</span></div></div>
+        </div>
+      </section>
+
+      <footer class="footer">Last updated Sep. 2026</footer>
+    </main>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('tab-work').style.display = tab === 'work' ? 'block' : 'none';
+      document.getElementById('tab-edu').style.display = tab === 'edu' ? 'block' : 'none';
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '-5% 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
