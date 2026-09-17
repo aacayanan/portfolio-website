@@ -9,7 +9,7 @@ const categories = [
 
 export default function Skills() {
   return (
-    <div className="mb-24">
+    <div>
       <h2 className="mb-8">Skills</h2>
 
       <div className="flex flex-col gap-8">

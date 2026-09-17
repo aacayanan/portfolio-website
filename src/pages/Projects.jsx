@@ -4,8 +4,8 @@ export default function Projects() {
   const projects = data.projects || [];
 
   return (
-    <div className="mb-24">
-      <h2 className="mb-8">Projects</h2>
+    <div className="mb-20 lg:mb-28">
+      <h2 className="mb-8">Selected Work</h2>
 
       {projects.length === 0 ? (
         <p className="text-[var(--fg-muted)] text-sm">Coming soon.</p>

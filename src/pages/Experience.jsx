@@ -50,7 +50,7 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <div className="mb-24">
+    <div>
       <h2 className="mb-8">Work</h2>
 
       {/* Tab switcher */}

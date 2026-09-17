@@ -3,44 +3,113 @@
     "name": "Aaron Justin Cayanan",
     "jobHeader": "Software Engineer",
     "location": "San Diego, CA",
-    "description": "A software engineer and computer science student building end-to-end applications with focus on usability, performance, and scalability."
+    "description": "I also have a cat and like to play tennis. You'll likely see me attached to my laptop with my terminal open."
   },
   "technologies": {
     "frontend": [
-      {"language": "TypeScript", "icon": "/frontend/ts.svg"},
-      {"language": "JavaScript", "icon": "/frontend/js.png"},
-      {"language": "React", "icon": "/frontend/react.webp"},
-      {"language": "Tailwind", "icon": "/frontend/tailwind.svg"},
-      {"language": "Next.js", "icon": "/frontend/nextjs.svg"},
-      {"language": "Figma", "icon": "/frontend/figma.webp"},
-      {"language": "HTML", "icon": "/frontend/html.png"},
-      {"language": "CSS", "icon": "/frontend/css.png"}
+      {
+        "language": "TypeScript",
+        "icon": "/frontend/ts.svg"
+      },
+      {
+        "language": "JavaScript",
+        "icon": "/frontend/js.png"
+      },
+      {
+        "language": "React",
+        "icon": "/frontend/react.webp"
+      },
+      {
+        "language": "Tailwind",
+        "icon": "/frontend/tailwind.svg"
+      },
+      {
+        "language": "Next.js",
+        "icon": "/frontend/nextjs.svg"
+      },
+      {
+        "language": "Figma",
+        "icon": "/frontend/figma.webp"
+      },
+      {
+        "language": "HTML",
+        "icon": "/frontend/html.png"
+      },
+      {
+        "language": "CSS",
+        "icon": "/frontend/css.png"
+      }
     ],
     "backend": [
-      {"language": "Python", "icon": "/backend/python.png"},
-      {"language": "Flask", "icon": "/backend/flask.webp"},
-      {"language": "FastAPI", "icon": "/backend/fastapi.svg"},
-      {"language": "Node.js", "icon": "/backend/nodejs.svg"},
-      {"language": "Java", "icon": "/backend/java.webp"},
-      {"language": "C/C++", "icon": "/backend/cpp.png"}
+      {
+        "language": "Python",
+        "icon": "/backend/python.png"
+      },
+      {
+        "language": "Flask",
+        "icon": "/backend/flask.webp"
+      },
+      {
+        "language": "FastAPI",
+        "icon": "/backend/fastapi.svg"
+      },
+      {
+        "language": "Node.js",
+        "icon": "/backend/nodejs.svg"
+      },
+      {
+        "language": "Java",
+        "icon": "/backend/java.webp"
+      },
+      {
+        "language": "C/C++",
+        "icon": "/backend/cpp.png"
+      }
     ],
     "database": [
-      {"language": "PostgreSQL", "icon": "/database/postgres.png"},
-      {"language": "SQLite", "icon": "/database/sqlite.svg"}
+      {
+        "language": "PostgreSQL",
+        "icon": "/database/postgres.png"
+      },
+      {
+        "language": "SQLite",
+        "icon": "/database/sqlite.svg"
+      }
     ],
     "tools": [
-      {"language": "Git/GitHub", "icon": "/tools/git.png"},
-      {"language": "Supabase", "icon": "/tools/supabase.png"},
-      {"language": "Docker", "icon": "/tools/docker.svg"},
-      {"language": "GitHub Actions", "icon": "/tools/github.png"},
-      {"language": "Jest", "icon": "/tools/jest.png"}
+      {
+        "language": "Git/GitHub",
+        "icon": "/tools/git.png"
+      },
+      {
+        "language": "Supabase",
+        "icon": "/tools/supabase.png"
+      },
+      {
+        "language": "Docker",
+        "icon": "/tools/docker.svg"
+      },
+      {
+        "language": "GitHub Actions",
+        "icon": "/tools/github.png"
+      },
+      {
+        "language": "Jest",
+        "icon": "/tools/jest.png"
+      }
     ]
   },
   "experience": [
     {
+      "company": "JSB Center for AI at San Diego State University",
+      "position": "Research Assistant",
+      "duration": "Aug 2025 - Feb 2026",
+      "description": "I gave a robot faces and trained it to recognize emotions based on generated semantics and emojis."
+    },
+    {
       "company": "LiaiZen",
       "position": "Software Engineer Intern",
-      "duration": "Jun 2025 - Present",
+      "duration": "Jun 2025 - Aug 2025",
       "description": "Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping. Translated ideas into structured Figma mockups and participated in cross-functional meetings."
     },
     {
@@ -48,12 +117,6 @@
       "position": "AI Code Trainer",
       "duration": "Feb 2024 - Dec 2024",
       "description": "Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models with emphasis on clarity, correctness, and robustness."
-    },
-    {
-      "company": "Crazy Science: Robotics",
-      "position": "After School Robotics Instructor",
-      "duration": "Feb 2025 - Present",
-      "description": "Teaching block-based programming and robotics to elementary students using VEX Go and Cubelets. Leading after-school classes of up to 20 students with hands-on coding challenges introducing core programming concepts."
     }
   ],
   "education": [
@@ -78,24 +141,37 @@
   ],
   "projects": [
     {
-      "name": "Portfolio Website",
-      "description": "Personal developer portfolio built with React, Vite, and Tailwind CSS. Features dark mode, scroll animations, and responsive design.",
-      "tags": ["React", "Vite", "Tailwind CSS"],
-      "github": "https://github.com/aacayanan/portfolio-website",
-      "live": "https://aaroncayanan.com"
-    },
-    {
-      "name": "Project Two",
-      "description": "A brief description of your second project. Replace this with real content.",
-      "tags": ["Tag1", "Tag2"],
+      "name": "tetherd",
+      "description": "A minimalist daily reflection and tracking app designed to keep you connected to what matters. Whether it's a safety net for your relationship or a commitment to your personal growth and friendships, Tetherd ensures you're staying connected on purpose.",
+      "tags": [
+        "Expo (React Native)",
+        "Zustand",
+        "Supabase"
+      ],
       "github": "",
       "live": ""
     },
     {
-      "name": "Project Three",
-      "description": "A brief description of your third project. Replace this with real content.",
-      "tags": ["Tag1", "Tag2"],
-      "github": "",
+      "name": "ouroboros",
+      "description": "An autonomous QA testing system where three parallel AI agents find bugs in a live web app and another AI agent fixes them, in a closed loop until all issues are resolved.",
+      "tags": [
+        "Python",
+        "BrowserUse",
+        "Claude Code CLI"
+      ],
+      "github": "https://github.com/aacayanan/ouroboros",
+      "live": ""
+    },
+    {
+      "name": "Multimodal Emotion Detection",
+      "description": "a wellness tracking application that uses a multimodal ML pipeline to analyze your daily selfies and provide emotional insights. It specifically helps detect patterns like Seasonal Affective Disorder (SAD) by tracking your \"vibe trend\" throughout the year.",
+      "tags": [
+        "Python",
+        "PyTorch",
+        "OpenCV + MediaPipe",
+        "Flask"
+      ],
+      "github": "https://github.com/aacayanan/portfolio-website",
       "live": ""
     }
   ]
