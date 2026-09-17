@@ -1,7 +1,7 @@
 import data from '../data.json';
 
 export default function Home() {
-  const { jobHeader, location, description } = data.portfolio;
+  const { jobHeader, location } = data.portfolio;
 
   return (
     <section id="home" className="mb-4">
@@ -13,7 +13,27 @@ export default function Home() {
       </h1>
 
       <p className="text-[var(--fg-muted)] leading-relaxed mb-10 max-w-[50ch]">
-        {description}
+        I also have a{' '}
+        <span className="cat-trigger">
+          cat
+          <span className="cat-card">
+            <span className="cat-card-inner">
+              <img src="/kimber.jpeg" alt="Kimber" className="cat-card-img" />
+              <span className="cat-card-name">kimber!</span>
+            </span>
+          </span>
+        </span>
+        {' '}and like to play{' '}
+        <span className="cat-trigger">
+          tennis
+          <span className="cat-card">
+            <span className="cat-card-inner">
+              <img src="/tennis.jpeg" alt="Tennis" className="cat-card-img" />
+              <span className="cat-card-name">wimbledon tourney!</span>
+            </span>
+          </span>
+        </span>
+        . You&apos;ll likely see me attached to my laptop with my terminal open.
       </p>
 
       {/* Social links — underlined text style */}
