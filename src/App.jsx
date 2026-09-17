@@ -1,136 +1,58 @@
-import Navbar from './components/Navbar';
+import PropTypes from 'prop-types';
+import Sidebar from './components/Sidebar';
+import MobileNav from './components/MobileNav';
 import Home from './pages/Home';
+import Experience from './pages/Experience';
 import Skills from './pages/Skills';
-import Projects from './pages/Projects.jsx';
-import Experience from "./pages/Experience.jsx";
-import {useEffect, useRef, useState} from "react";
+import Projects from './pages/Projects';
+import Footer from './components/Footer';
+import useScrollReveal from './hooks/useScrollReveal';
 
-function App() {
-   // Separate state and refs for each section
-   const [isHomeVisible, setIsHomeVisible] = useState(false);
-   const [isExperienceVisible, setIsExperienceVisible] = useState(false);
-   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
-   const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+Section.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
-   const homeRef = useRef(null);
-   const experienceRef = useRef(null);
-   const skillsRef = useRef(null);
-   const projectsRef = useRef(null);
-
-   // Scroll to top on load
-    useEffect(() => {
-        // Prevent browser from restoring scroll position
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-        window.scrollTo(0, 0);
-    }, []);
-
-   // Observer for Home section
-   useEffect(() => {
-       const observer = new IntersectionObserver(
-           ([entry]) => {
-               if (entry.isIntersecting && !isHomeVisible) {
-                   setIsHomeVisible(true);
-                   observer.unobserve(entry.target);
-               }
-           },
-           {
-               threshold: 0.1,
-               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
-           }
-       );
-
-       if (homeRef.current) {
-           observer.observe(homeRef.current);
-       }
-
-       return () => observer.disconnect();
-   }, [isHomeVisible]);
-
-   // Observer for Experience section
-   useEffect(() => {
-       const observer = new IntersectionObserver(
-           ([entry]) => {
-               if (entry.isIntersecting && !isExperienceVisible) {
-                   setIsExperienceVisible(true);
-                   observer.unobserve(entry.target);
-               }
-           },
-           {
-               threshold: 0.1,
-               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
-           }
-       );
-
-       if (experienceRef.current) {
-           observer.observe(experienceRef.current);
-       }
-
-       return () => observer.disconnect();
-   }, [isExperienceVisible]);
-
-   // Observer for Skills section
-   useEffect(() => {
-       const observer = new IntersectionObserver(
-           ([entry]) => {
-               if (entry.isIntersecting && !isSkillsVisible) {
-                   setIsSkillsVisible(true);
-                   observer.unobserve(entry.target);
-               }
-           },
-           {
-               threshold: 0.1,
-               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
-           }
-       );
-
-       if (skillsRef.current) {
-           observer.observe(skillsRef.current);
-       }
-
-       return () => observer.disconnect();
-   }, [isSkillsVisible]);
-
-   // Observer for Projects section
-   useEffect(() => {
-       const observer = new IntersectionObserver(
-           ([entry]) => {
-               if (entry.isIntersecting && !isProjectsVisible) {
-                   setIsProjectsVisible(true);
-                   observer.unobserve(entry.target);
-               }
-           },
-           {
-               threshold: 0.1,
-               rootMargin: "-20% 0px -20% 0px"  // triggers when in % of viewport
-           }
-       );
-
-       if (projectsRef.current) {
-           observer.observe(projectsRef.current);
-       }
-
-       return () => observer.disconnect();
-   }, [isProjectsVisible]);
+function Section({ id, children }) {
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <div>
-      <Navbar />
-      <div id="home" ref={homeRef} className={isHomeVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
-        <Home />
-      </div>
-      <div id="experience" ref={experienceRef} className={isExperienceVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
-        <Experience />
-      </div>
-      <div id="skills">
-        <Skills />
-      </div>
-      <div id="projects" ref={projectsRef} className={isProjectsVisible ? 'animate-float-up opacity-0 [animation-fill-mode:forwards]' : 'opacity-0'}>
-        <Projects />
-      </div>
-    </div>
+    <section
+      id={id}
+      ref={ref}
+      className={`reveal ${isVisible ? 'visible' : ''}`}
+    >
+      {children}
+    </section>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <div className="min-h-screen">
+      <Sidebar />
+      <MobileNav />
+
+      {/* Main content — offset by sidebar on desktop */}
+      <main className="lg:ml-48">
+        <div className="max-w-2xl mx-auto px-6 py-24 lg:py-32">
+          <Home />
+
+          <Section id="experience">
+            <Experience />
+          </Section>
+
+          <Section id="skills">
+            <Skills />
+          </Section>
+
+          <Section id="projects">
+            <Projects />
+          </Section>
+
+          <Footer />
+        </div>
+      </main>
+    </div>
+  );
+}

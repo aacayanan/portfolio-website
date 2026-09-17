@@ -1,42 +1,91 @@
 @import "tailwindcss";
 
 @theme {
-    /*COLOR TONE*/
-    --color-primary: rgba(240, 219, 79, 0.5);
-    --color-primary-accent: rgba(113, 103, 34, 1);
-    --color-secondary: rgba(100, 149, 237, 0.5);
-    --color-secondary-accent: rgba(63, 98, 161, 1);
-    --color-danger: #DE1212;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);  /* Start from below */
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);     /* End at normal position */
-        opacity: 1;
-    }
+/* ─── Light tokens ─── */
+:root {
+  --bg: #FAFAF8;
+  --bg-elevated: #F0F0EC;
+  --fg: #111111;
+  --fg-muted: #6B6B6B;
+  --accent: #4A6FA5;
+  --border: #E0E0DC;
+  --selection-bg: #4A6FA530;
 }
 
-@keyframes floatUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+/* ─── Dark tokens (system) ─── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111111;
+    --bg-elevated: #1A1A1A;
+    --fg: #E8E8E4;
+    --fg-muted: #8A8A8A;
+    --accent: #7BA3D4;
+    --border: #2A2A2A;
+    --selection-bg: #7BA3D430;
+  }
 }
 
-.animate-slide-up {
+/* ─── Dark tokens (manual toggle) ─── */
+:root[data-theme="dark"] {
+  --bg: #111111;
+  --bg-elevated: #1A1A1A;
+  --fg: #E8E8E4;
+  --fg-muted: #8A8A8A;
+  --accent: #7BA3D4;
+  --border: #2A2A2A;
+  --selection-bg: #7BA3D430;
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--selection-bg);
+}
+
+/* ─── Typography ─── */
+h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+h2 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; }
+h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
+
+/* ─── Scroll reveal animation ─── */
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    animation: slideUp 0.5s ease-out forwards;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-float-up {
-    opacity: 0;
-    animation: floatUp 0.5s ease-out forwards;
+.reveal {
+  opacity: 0;
 }
+
+.reveal.visible {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Stagger children ─── */
+.reveal.visible > *:nth-child(1) { animation-delay: 0ms; }
+.reveal.visible > *:nth-child(2) { animation-delay: 80ms; }
+.reveal.visible > *:nth-child(3) { animation-delay: 160ms; }
+.reveal.visible > *:nth-child(4) { animation-delay: 240ms; }
+.reveal.visible > *:nth-child(5) { animation-delay: 320ms; }
+.reveal.visible > *:nth-child(6) { animation-delay: 400ms; }

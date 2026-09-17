@@ -1,11 +1,9 @@
 {
   "portfolio": {
-    "jobHeader": "full-stack developer",
+    "name": "Aaron Justin Cayanan",
+    "jobHeader": "Software Engineer",
     "location": "San Diego, CA",
-    "description": "A full-stack developer and computer science student with experience building end-to-end web and mobile applications. Creating software with focus on usability, performance, and scalability that is easy to maintain."
-  },
-  "about": {
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin fringilla malesuada. Donec sit amet euismod urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin auctor tortor in nunc congue, commodo commodo felis suscipit. Morbi imperdiet lectus quam, eu volutpat mauris porttitor tempus. Sed turpis purus, hendrerit varius finibus ac, luctus a ante. Ut dignissim magna nec accumsan mollis. Vivamus ac arcu turpis. Nunc mi urna, elementum sed lacus eu, vehicula tincidunt ante. Donec leo massa, convallis id magna nec, tincidunt ullamcorper enim."
+    "description": "A software engineer and computer science student building end-to-end applications with focus on usability, performance, and scalability."
   },
   "technologies": {
     "frontend": [
@@ -43,22 +41,19 @@
       "company": "LiaiZen",
       "position": "Software Engineer Intern",
       "duration": "Jun 2025 - Present",
-      "description": "I work across both the technical and design sides of product development, contributing to mobile deployment integration, frontend development and design, and AI agent creation. I’ve refined intelligent agent behavior through prompt engineering and prototyping in collaboration with the AI team. On the design side, I translate ideas into structured Figma mockups and participate in cross-functional meetings to align design with implementation. My role bridges development, AI functionality, and UX design to ensure smooth deployment and a cohesive user experience.",
-      "logo": "../assets/liaizen.svg"
+      "description": "Contributing to mobile deployment integration, frontend development and design, and AI agent creation. Refined intelligent agent behavior through prompt engineering and prototyping. Translated ideas into structured Figma mockups and participated in cross-functional meetings."
     },
     {
       "company": "Scale AI",
       "position": "AI Code Trainer",
       "duration": "Feb 2024 - Dec 2024",
-      "description": "I specialized in translating complex prompts into effective, secure, and well-structured code across languages such as Python, Java, C/C++, C#, and JavaScript. I focus on training and fine-tuning large language models (LLMs) with an emphasis on clarity, correctness, and robustness of their outputs. My work involves writing thorough test cases to validate performance and ensure the reliability of model-driven solutions.",
-      "logo": "https://cdn-1.webcatalog.io/catalog/scale-ai/scale-ai-social-preview.png?v=1714775738638"
+      "description": "Specialized in translating complex prompts into effective, secure, and well-structured code across Python, Java, C/C++, C#, and JavaScript. Focused on training and fine-tuning large language models with emphasis on clarity, correctness, and robustness."
     },
     {
       "company": "Crazy Science: Robotics",
       "position": "After School Robotics Instructor",
       "duration": "Feb 2025 - Present",
-      "description": "I teach block-based programming and robotics to elementary students using platforms like VEX Go and Cubelets. I lead after-school classes of up to 20 students, designing hands-on coding challenges that introduce core programming concepts like logic, debugging, and structured thinking in a fun and engaging way.",
-      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFaItandLUPTRfmOSnT587tQu8FskhNA5AqA&s"
+      "description": "Teaching block-based programming and robotics to elementary students using VEX Go and Cubelets. Leading after-school classes of up to 20 students with hands-on coding challenges introducing core programming concepts."
     }
   ],
   "education": [
@@ -66,22 +61,42 @@
       "institution": "San Diego State University",
       "degree": "Bachelor of Science in Computer Science",
       "duration": "2027",
-      "description": "",
-      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9t2NSz2vI479t7u5gp8g-AU5EKp1IM331w&s"
+      "description": ""
     },
     {
-        "institution": "San Diego Mesa College",
-        "degree": "Associate of Science for Transfer in Computer Science",
-        "duration": "2025",
-        "description": "",
-        "logo": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F706593879%2F102745469757%2F1%2Foriginal.20240227-181824?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1080%2C1080&s=b933ef7f611aa72629f1dc966f3d64b7"
+      "institution": "San Diego Mesa College",
+      "degree": "Associate of Science for Transfer in Computer Science",
+      "duration": "2025",
+      "description": ""
     },
     {
       "institution": "San Diego Miramar College",
       "degree": "Associate of Science in Biology for Allied Health",
       "duration": "2022",
-      "description": "",
-      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIWSXptwNWm6MWHaKapAUiFOvD0Zu_d10OYA&s"
+      "description": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "Personal developer portfolio built with React, Vite, and Tailwind CSS. Features dark mode, scroll animations, and responsive design.",
+      "tags": ["React", "Vite", "Tailwind CSS"],
+      "github": "https://github.com/aacayanan/portfolio-website",
+      "live": "https://aaroncayanan.com"
+    },
+    {
+      "name": "Project Two",
+      "description": "A brief description of your second project. Replace this with real content.",
+      "tags": ["Tag1", "Tag2"],
+      "github": "",
+      "live": ""
+    },
+    {
+      "name": "Project Three",
+      "description": "A brief description of your third project. Replace this with real content.",
+      "tags": ["Tag1", "Tag2"],
+      "github": "",
+      "live": ""
     }
   ]
 }
