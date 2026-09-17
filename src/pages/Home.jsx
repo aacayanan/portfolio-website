@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import data from '../data.json';
+import kimberImg from '../assets/kimber.jpeg';
+import tennisImg from '../assets/tennis.jpeg';
 
 export default function Home() {
   const { jobHeader, location } = data.portfolio;
@@ -11,7 +13,7 @@ export default function Home() {
   return (
     <section id="home" className="mb-4">
       <p className="text-[var(--fg-muted)] text-sm mb-4">
-        Ni-Howdy! I&apos;m Aaron, a
+        Ni-Howdy! I&apos;m Aaron Cayanan, a
       </p>
       <h1 className="mb-6">
         {jobHeader}<br />based in {location}.
@@ -19,21 +21,43 @@ export default function Home() {
 
       <p className="text-[var(--fg-muted)] leading-relaxed mb-10 max-w-[50ch]">
         I also have a{' '}
-        <span className="cat-trigger">
+        <span
+          className="cat-trigger"
+          onMouseEnter={(e) => {
+            const card = e.currentTarget.querySelector('.cat-card');
+            card.classList.remove('exiting');
+          }}
+          onMouseLeave={(e) => {
+            const card = e.currentTarget.querySelector('.cat-card');
+            card.classList.add('exiting');
+            card.addEventListener('animationend', () => card.classList.remove('exiting'), { once: true });
+          }}
+        >
           cat
           <span className="cat-card">
             <span className="cat-card-inner">
-              <img src="/kimber.jpeg" alt="Kimber" className="cat-card-img" />
+              <img src={kimberImg} alt="Kimber" className="cat-card-img" />
               <span className="cat-card-name">kimber!</span>
             </span>
           </span>
         </span>
         {' '}and like to play{' '}
-        <span className="cat-trigger">
+        <span
+          className="cat-trigger"
+          onMouseEnter={(e) => {
+            const card = e.currentTarget.querySelector('.cat-card');
+            card.classList.remove('exiting');
+          }}
+          onMouseLeave={(e) => {
+            const card = e.currentTarget.querySelector('.cat-card');
+            card.classList.add('exiting');
+            card.addEventListener('animationend', () => card.classList.remove('exiting'), { once: true });
+          }}
+        >
           tennis
           <span className="cat-card">
             <span className="cat-card-inner">
-              <img src="/tennis.jpeg" alt="Tennis" className="cat-card-img" />
+              <img src={tennisImg} alt="Tennis" className="cat-card-img" />
               <span className="cat-card-name">wimbledon tourney!</span>
             </span>
           </span>

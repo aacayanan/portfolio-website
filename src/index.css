@@ -145,7 +145,8 @@ body.loaded .cat-trigger:hover .cat-card {
   animation: catCardIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-body.loaded .cat-card:not(:hover) {
+/* Exit animation — applied via JS on mouseleave */
+body.loaded .cat-card.exiting {
   animation: catCardOut 0.2s ease-in forwards;
 }
 
