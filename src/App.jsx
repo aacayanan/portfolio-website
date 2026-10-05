@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Sidebar from './components/Sidebar';
 import TopNav from './components/TopNav';
 import MobileNav from './components/MobileNav';
+import LaunchNotification from './components/LaunchNotification';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Skills from './pages/Skills';
@@ -34,6 +35,7 @@ export default function App() {
       <Sidebar />
       <TopNav />
       <MobileNav />
+      <LaunchNotification />
 
       {/* Main content — offset by sidebar on desktop */}
       <main className="lg:ml-12">

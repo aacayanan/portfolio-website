@@ -53,6 +53,7 @@ CI/CD via GitHub Actions (`.github/workflows/deploy.yml`): push to `master` trig
 
 ## Codebase Notes
 
+- Whenever there is a change to the site, update the "Last updated" date in `src/components/Footer.jsx` to the current date.
 - `data.json` is in `.gitignore` but exists in the repo (committed before the ignore rule was added). Editing it affects production content.
 - `TechComponent.jsx`, `PortfolioCard.jsx`, `ContactCard.jsx`, and `AboutCard.jsx` exist in `src/` but are not currently imported anywhere — they are unused/legacy components.
 - The IntersectionObserver pattern in `App.jsx` is duplicated 4 times with near-identical code. A custom `useScrollReveal` hook would reduce this duplication.
