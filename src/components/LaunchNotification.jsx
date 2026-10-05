@@ -44,8 +44,8 @@ export default function LaunchNotification() {
   return (
     <div
       className={[
-        'fixed top-3 left-3 z-[60] w-[min(20rem,calc(100vw-1.5rem))]',
-        'lg:top-6 lg:left-20 lg:w-80',
+        'fixed top-3 left-0 right-0 z-[60]',
+        'lg:top-6 lg:left-20 lg:right-auto lg:w-80',
         visible ? 'notif-visible' : 'hidden',
       ].join(' ')}
     >
