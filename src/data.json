@@ -147,6 +147,19 @@
   ],
   "projects": [
     {
+      "name": "oriyomi",
+      "description": "ori—to fold, yomi—to read.\nA full-stack web app that turns PDFs, DOCX files, Markdown, text files, or pasted text into a synchronized listen-and-read experience. It detects document sections, generates neural speech, highlights the sentence currently being spoken.",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Python",
+        "FastAPI",
+        "Edge TTS"
+      ],
+      "github": "https://github.com/aacayanan/oriyomi",
+      "live": "https://oriyomi.com"
+    },
+    {
       "name": "tetherd",
       "description": "A minimalist React Native daily reflection app. Designed to track interpersonal commitments and personal growth metrics, providing users with structured insights into their relationship health and daily habits. \"Keep your life, and your relationships, tetherd together\" ",
       "tags": [
